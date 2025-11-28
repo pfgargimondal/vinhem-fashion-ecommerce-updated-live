@@ -1,3 +1,13 @@
+@media only screen and (max-width: 1366px){
+    .deiwhirhwejpekr.sticky-top{
+        top: 21%;
+    }
+}
+
+
+
+
+
 @media only screen and (max-width: 991px){
     .customize-modal,
     .men-chart-size .modal-dialog{
@@ -50,13 +60,17 @@
         height: 0;
     }
 
-    .sdgdffwesfdf .small-image-tabs .nav-item:first-child{
-        margin-left: 0 !important;
+    .small-image-tabs .nav-item{
+        margin: 0 auto !important;
     }
 
     .customize-modal #co-close-btn{
         top: 3%;
     }
+
+    .deiwhirhwejpekr{
+        margin-bottom: 2rem;
+    }    
 
     .doienkwjrewewr.p-5{
         padding: 1.2rem !important;

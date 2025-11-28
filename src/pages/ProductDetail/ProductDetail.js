@@ -49,6 +49,37 @@ export const ProductDetail = () => {
   const [showLaterModal, setShowLaterModal] = useState(false);
   const [activeKey, setActiveKey] = useState("first");
   const [chatProfileDetailsShow, setChatProfileDetailsShow] = useState(false);
+  const [videoMute, setVideoMute] = useState(true);
+
+  const handleVideoToggle = (videoKey) => {
+    const largeVideo = document.querySelector(".odjeowmkoiwewer video");
+
+    if (videoKey === "seventh") {
+      largeVideo.currentTime = 0;
+      largeVideo.play();
+    }
+
+    setVideoMute(false);
+  };
+
+  const handleVideoControl = () => {
+    const largeVideo = document.querySelector(".odjeowmkoiwewer video");
+
+    if (largeVideo.paused) {
+      largeVideo.play();
+    } else {
+      largeVideo.pause();
+    }
+  };
+
+  const handleMuteToggle = () => {
+    const largeVideo = document.querySelector(".odjeowmkoiwewer video");
+
+    largeVideo.muted = !largeVideo.muted;
+
+    setVideoMute(!videoMute);
+  };
+
 
   const handleLaterToggle = () => {
     const html = document.querySelector("html");
@@ -659,7 +690,7 @@ export const ProductDetail = () => {
                             )}
 
                             <Nav.Item className="nijnihninerrr">
-                              <Nav.Link eventKey="seventh">
+                              <Nav.Link eventKey="seventh" onClick={() => handleVideoToggle("seventh")}>
                                 <div className="dowenfrkwer position-relative">
                                   <video>
                                     <source src="../../images/sdaw.mp4" type="video/mp4" />
@@ -739,10 +770,14 @@ export const ProductDetail = () => {
                                 </Tab.Pane>
                               )}
                               <Tab.Pane eventKey="seventh" className="odjeowmkoiwewer">
-                                <video controls>
+                                <video loop autoplay onClick={handleVideoControl} muted={true}>
                                   <source src="../../images/sdaw.mp4" type="video/mp4" />
                                   Your browser does not support the video tag.
                                 </video>
+
+                                <div className="dweuihrweuhre bg-white overflow-hidden rounded-pill position-absolute" onClick={handleMuteToggle}>
+                                  <i class={`bi position-absolute ${videoMute ? "bi-volume-up" : "bi-volume-mute"}`}></i>
+                                </div>
                               </Tab.Pane>
                             </Tab.Content>
 
@@ -902,7 +937,6 @@ export const ProductDetail = () => {
                         </div>
                       )}
 
-
                       {/* id="custmze-otft-btn"> */}
                       {productDetails?.data?.stitching_option === 'Ready To Wear' && (
                         <div className="jlksdeflksdfk">
@@ -910,7 +944,6 @@ export const ProductDetail = () => {
                           <div className="row sdfasdctgerrrrwe mb-3">
                             <div className="col-lg-5 col-md-9 col-sm-9 col-9">
                               <div className="dgndfjgdf">
-                                
                                 <select
                                   name="product_size"
                                   id="product_size"
@@ -1743,7 +1776,12 @@ export const ProductDetail = () => {
 
 
       {/*chat now modal*/}
-      
+
+      {!chatProfileDetailsShow && (
+        <div className="dkwejkrhiwenrower position-fixed" onClick={() => setChatProfileDetailsShow(!chatProfileDetailsShow)}>
+          <i class="bi text-white position-absolute bi-chat-dots-fill"></i>
+        </div>
+      )}
 
       {chatProfileDetailsShow && (
         <ChatProfileDetails setChatProfileDetailsShow={setChatProfileDetailsShow} />

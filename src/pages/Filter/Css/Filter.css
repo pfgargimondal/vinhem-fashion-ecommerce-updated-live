@@ -50,6 +50,11 @@
 .iduhweihriweurwerwer .btn-main:hover{
   font-weight: 400;
   border-radius: 5px;
+  color: #fff !important;
+}
+
+.iduhweihriweurwerwer .btn-main:hover i{
+  color: #fff;
 }
 
 .doiewjkrniuwewer.col-lg-3{
@@ -101,9 +106,17 @@
   max-height: 14rem;
   overflow-y: auto;
 }
-.clor-fltr-optn{
-  display: inline-block;
+
+.asdefwerrerer label.clr-label{
+  border: 1px solid #fff !important;
 }
+
+.asondiaidniehrer{
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #d5d5d5;
+}
+
 .doewjkrnhweiurwer .radio-wrapper-5 {
   line-height: 1.5;
   display: flex;
