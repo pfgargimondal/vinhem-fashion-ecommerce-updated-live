@@ -903,64 +903,66 @@ export const ProductDetail = () => {
                       )}
 
 
-                      <label className="form-label"><b>Select Your Size</b></label>
-
                       {/* id="custmze-otft-btn"> */}
                       {productDetails?.data?.stitching_option === 'Ready To Wear' && (
-                        <div className="row sdfasdctgerrrrwe mb-3">
-                          <div className="col-lg-5 col-md-9 col-sm-9 col-9">
-                            <div className="dgndfjgdf">
-                              <select
-                                name="product_size"
-                                id="product_size"
-                                className="form-select"
-                                onChange={handleSizeChange}
-                                value={selectedSize}
-                              >
-                                <option value="">Select Size</option>
+                        <div className="jlksdeflksdfk">
+                          <label className="form-label"><b>Select Your Size</b></label>
+                          <div className="row sdfasdctgerrrrwe mb-3">
+                            <div className="col-lg-5 col-md-9 col-sm-9 col-9">
+                              <div className="dgndfjgdf">
+                                
+                                <select
+                                  name="product_size"
+                                  id="product_size"
+                                  className="form-select"
+                                  onChange={handleSizeChange}
+                                  value={selectedSize}
+                                >
+                                  <option value="">Select Size</option>
 
-                                {(() => {
-                                  const sizeOrder = [
-                                    "XS", "S", "M", "L", "XL",
-                                    "2XL", "3XL", "4XL", "5XL",
-                                    "6XL", "7XL", "8XL", "9XL", "10XL"
-                                  ];
+                                  {(() => {
+                                    const sizeOrder = [
+                                      "XS", "S", "M", "L", "XL",
+                                      "2XL", "3XL", "4XL", "5XL",
+                                      "6XL", "7XL", "8XL", "9XL", "10XL"
+                                    ];
 
-                                  // Flatten sizes (filter_size + plus_sizes)
-                                  const flatSizes = productDetails?.data?.product_allSize?.flatMap(item => {
-                                    const arr = [item.filter_size];
-                                    if (item.plus_sizes && item.plus_sizes !== "0") {
-                                      arr.push(item.plus_sizes);
-                                    }
-                                    return arr;
-                                  }) || [];
+                                    // Flatten sizes (filter_size + plus_sizes)
+                                    const flatSizes = productDetails?.data?.product_allSize?.flatMap(item => {
+                                      const arr = [item.filter_size];
+                                      if (item.plus_sizes && item.plus_sizes !== "0") {
+                                        arr.push(item.plus_sizes);
+                                      }
+                                      return arr;
+                                    }) || [];
 
-                                  // Sort sizes using prefix before "-"
-                                  const sorted = flatSizes.sort((a, b) => {
-                                    const prefixA = a.split("-")[0];
-                                    const prefixB = b.split("-")[0];
-                                    return sizeOrder.indexOf(prefixA) - sizeOrder.indexOf(prefixB);
-                                  });
+                                    // Sort sizes using prefix before "-"
+                                    const sorted = flatSizes.sort((a, b) => {
+                                      const prefixA = a.split("-")[0];
+                                      const prefixB = b.split("-")[0];
+                                      return sizeOrder.indexOf(prefixA) - sizeOrder.indexOf(prefixB);
+                                    });
 
-                                  // Return sorted options
-                                  return sorted.map((size, index) => (
-                                    <option key={index} value={size}>
-                                      {size}
-                                    </option>
-                                  ));
-                                })()}
-                              </select>
-                              <p className="mt-2">
-                                {productDetails?.data?.mto_quantity <= 5 && (
-                                  <>Only few left</>
-                                )}
-                              </p>
+                                    // Return sorted options
+                                    return sorted.map((size, index) => (
+                                      <option key={index} value={size}>
+                                        {size}
+                                      </option>
+                                    ));
+                                  })()}
+                                </select>
+                                <p className="mt-2">
+                                  {productDetails?.data?.mto_quantity <= 5 && (
+                                    <>Only few left</>
+                                  )}
+                                </p>
+                              </div>
                             </div>
-                          </div>
 
-                          <div className="col-lg-4 col-md-3 col-sm-3 col-3">
-                            <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
-                              <button className="btn btn-main px-0" onClick={() => setShowSizeGuide(!showSizeGuide)}><img src="/images/ruler.png" alt="" /> Size Guide</button>
+                            <div className="col-lg-4 col-md-3 col-sm-3 col-3">
+                              <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
+                                <button className="btn btn-main px-0" onClick={() => setShowSizeGuide(!showSizeGuide)}><img src="/images/ruler.png" alt="" /> Size Guide</button>
+                              </div>
                             </div>
                           </div>
                         </div>
