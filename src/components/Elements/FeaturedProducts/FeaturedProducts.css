@@ -252,6 +252,7 @@
   display: inline-block;
   /* background: rgba(232, 232, 232, 0.7); */
   background-color: #fff3cd;
+  text-transform: capitalize;
 }
 .fdbdfgdfgdf h6 i{
   color: var(--pink-main-color);
@@ -300,7 +301,7 @@
 }
 
 .clr-label{
-  border: 1px solid var(--text-gray-color) !important;
+  /* border: 1px solid var(--text-gray-color) !important; */
   transition: 0.2s ease-in-out;
 }
 

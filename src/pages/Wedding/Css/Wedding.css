@@ -3,7 +3,7 @@
 /*start wadding page  css   */
 .sdgdfhbgdfr {
   width: 100%;
-  padding: 40px 0;
+  padding-top: 3rem;
 }
 
 .dfgdfg255 {
@@ -11,6 +11,7 @@
   height: 350px;
   background-size: 100% 100%;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .overlay-black {
@@ -134,29 +135,30 @@
 }
 
 .dfgbdfjhgdf {
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .dfgbdfjhgdf h2 {
-  color: gray;
-  font-size: 35px;
+  color: #000;
+  font-size: 30px;
 }
 
 .sdfjksdgsdfgsdf {
   width: 100%;
-  padding: 40px 0;
+  padding-top: 3rem;
 }
 
 .jdfkdf {
   width: 100%;
   height: 421px;
-  margin-bottom: 30px;
+  margin-bottom: 17px;
   border-radius: 25px;
   background-size: cover;
 }
 
 .dfghjhufggdfg {
   width: 100%;
+  padding-bottom: 3rem;
 }
 
 .dfbhhfgdf {
@@ -165,7 +167,8 @@
   background-size: cover;
   background-position: center;
   border-radius: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 17px;
+  cursor: pointer;
 }
 
 .dfbhhfgdf55 {
@@ -178,12 +181,11 @@
 
 .fgnhdfjhugdfgsd {
   width: 100%;
-  padding: 40px 0;
 }
 
 .dfbhhfgdf55 {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 17px;
 }
 
 .fgndfjhgfgds {
@@ -215,7 +217,7 @@
 
 .fgjhfbgdfjh565 {
   width: 100%;
-  padding: 40px 0;
+  padding: 3rem 0;
 }
 
 .ffdgf548 {

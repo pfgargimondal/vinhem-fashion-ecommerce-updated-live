@@ -107,7 +107,7 @@ export const FeaturedProducts = ({ featuredProduct }) => {
                 </div>
 
                 <div className={`fdbdfgdfgdf`}>
-                  <div className="d-flex align-items-center justify-content-between">
+                  <div className="d-flex align-items-center">
                     <h6 className="dokwehorjweojrower"><i class="bi bi-truck"></i> Ships in {featuredProduct.shipping_time}</h6>
 
                     {featuredProduct.rts_quantity > '0' && (

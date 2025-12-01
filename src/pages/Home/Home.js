@@ -261,15 +261,8 @@ export const Home = () => {
       
       <div className="container-fluid pb-5">
         <Link to={homepage?.data?.section2_url}>
-          <div className="xfdjgdfgdfg"
-            style={{
-              backgroundImage: `url(${homepage?.image_url}/${homepage?.data?.section2_image})`,
-              backgroundSize: "100% 100%"
-            }}
-          >
-            <div className="container-fluid">
-              <div className="dfbghd5488"></div>
-            </div>
+          <div className="xfdjgdfgdfg">
+            <img src={`${homepage?.image_url}/${homepage?.data?.section2_image}`} className="w-100" alt="" />
           </div>
         </Link>
       </div>

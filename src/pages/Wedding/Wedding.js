@@ -353,7 +353,7 @@ export const Wedding = () => {
           </div>
         </div>
       </div>
-      <div className="dfghjhufggdfg">
+      <div className="dfghjhufggdfg pt-5">
         <div className="container-fluid">
           <div className="dfgbdfjhgdf">
             <h2>{WeddingDetails?.data?.section1to4?.section4_title}</h2>
@@ -658,7 +658,7 @@ export const Wedding = () => {
         </div>
       </div>
 
-      <div className="fgndfjhgfgds">
+      <div className="fgndfjhgfgds pt-5">
         <div className="container-fluid">
           <div
             className="dfgdfgfd"

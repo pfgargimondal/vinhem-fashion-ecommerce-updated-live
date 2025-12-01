@@ -300,7 +300,7 @@ export const OnSale = () => {
         </div>
       </div>
 
-      <div class="fkvbhjhdfgdfg mt-4">
+      <div class="fkvbhjhdfgdfg pt-5">
         <div class="container-fluid">
           <div class="dfjvdgd">
             <h2>{OnSaleDetails?.data?.section3_title}</h2>
@@ -420,7 +420,7 @@ export const OnSale = () => {
         </div>
       </div>
 
-      <div class="sdhfdfgdf mt-5">
+      <div class="sdhfdfgdf pt-5">
         <div class="container-fluid">
           <div class="dfjvdgd">
             <h2>{OnSaleDetails?.data?.section4_title}</h2>
@@ -635,7 +635,7 @@ export const OnSale = () => {
         </div>
       </div>
 
-      <div class="sdhfdfgdf">
+      <div class="sdhfdfgdf pt-5">
         <div class="container-fluid">
           <div class="dfjvdgd">
             <h2>{OnSaleDetails?.data?.section6_title}</h2>
@@ -677,7 +677,7 @@ export const OnSale = () => {
         </div>
       </div>  */}
 
-      <div className="fbgvdsdfd6568 pt-3 pb-5 mb-4">
+      <div className="fbgvdsdfd6568 py-5">
         <div className="container-fluid">
           <div className="ghbgfgdf sdfwedweeerr">
             <div className="row align-items-center">

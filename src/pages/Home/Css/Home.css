@@ -83,7 +83,7 @@
 
 li.dfhdfg{
   list-style: none;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
 .dbfggfhfh{
@@ -101,7 +101,7 @@ li.dfhdfg{
 }
 
 .fbsdsdf h4 a{
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .jdfhbtn:hover {
@@ -227,6 +227,10 @@ li.dfhdfg{
   font-weight: 700;
 }
 
+.dfhdfgd464 h2.mb-3{
+  margin-bottom: 2rem !important;
+}
+
 .sdvsdfdvgdfg.d-flex{
   flex-direction: column;
 }
@@ -254,7 +258,7 @@ li.dfhdfg{
 
 .xfdjgdfgdfg {
   width: 100%;
-  height: 500px;
+  /* height: 500px; */
   border-radius: 10px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
@@ -271,7 +275,7 @@ li.dfhdfg{
 
 .nhgf65dfgdf {
   width: 100%;
-  height: 365px;
+  height: 100%;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border-radius: 10px;
   overflow: hidden;
@@ -285,7 +289,7 @@ li.dfhdfg{
 
 .dfdfdffd {
   width: 100%;
-  height: 520px;
+  height: 100%;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -303,7 +307,7 @@ li.dfhdfg{
 
 .sdfsdfsdfsd {
   width: 100%;
-  height: 436px;
+  height: 100%;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -319,12 +323,18 @@ li.dfhdfg{
 }
 
 .sdf58sdfs h4 {
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 700;
 }
 
+.fgnhfgh h2.mb-3,
+.sdf58sdfs h4.mb-4,
+.sdf58sdfs h4.mb-3{
+  margin-bottom: 2rem !important;
+}
+
 .dfgyhdfgdf {
-  height: 442px;
+  height: 100%;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
