@@ -72,11 +72,14 @@ header .header-top {
   border-bottom: 1px solid var(--light-background-color);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 20px -20px;
   position: relative;
-  z-index: 9;
+  z-index: 9;  
 }
 header .header-top .doeiwhrkwdeor{
   width: 11.32rem;
-  margin-right: 1.5rem;
+  margin-right: 5rem;
+}
+.header-top.py-2{
+  padding-bottom: 0.9rem !important;
 }
 header .header-top .doeiwhrkwdeor ul li {
   display: inline-flex;
@@ -238,7 +241,7 @@ header .header-main .swiper-slide {
   border-radius: 10px;
 }
 header .header-main .swiper-slide a {
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -246,17 +249,16 @@ header .header-main .swiper-slide a {
 header .header-main .swiper-slide > a {
   position: relative;
   display: block;
-  padding: 14px 19px;
-}
-
-header .header-main .swiper-slide > a{
+  padding: 14px;
   border-bottom: 3px solid transparent;
   transition: 0.1s ease-in-out;
+  font-size: 16px;
 }
 
 header .header-main .swiper-slide:hover > a{
   border-bottom: 3px solid var(--pink-main-color);
   transition: 0.1s ease-in-out;
+  color: var(--pink-main-color);
 }
 
 .header-mega-menu{
@@ -309,8 +311,8 @@ header .header-main .swiper-slide:hover .header-mega-menu{
 }
 
 .h-m-m-inner .oieniuiewr_inner h5{
-  font-size: 0.9rem;
-  color: var(--grey-border-color);
+  font-size: 1rem;
+  color: #000;
 }
 
 .h-m-m-inner .oieniuiewr_inner ul li{
@@ -320,9 +322,9 @@ header .header-main .swiper-slide:hover .header-mega-menu{
 
 .h-m-m-inner .oieniuiewr_inner ul li a{
   font-weight: 400 !important;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-transform: capitalize;
-  color: var(--text-main-color);
+  color: #000;
   transition: 0.1s ease-in-out;
 }
 

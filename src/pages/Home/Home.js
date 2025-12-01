@@ -142,7 +142,7 @@ export const Home = () => {
 
       <div className="fbgvdsdfd6568 pt-3 pb-5">
         <div className="container-fluid">
-          <div className="ghbgfgdf">
+          <div className="ghbgfgdf dfwedrtweqweqee">
             <div className="row align-items-center">
               <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfnghfd">
@@ -438,11 +438,29 @@ export const Home = () => {
             <img src={`${homepage?.image_url}/${homepage?.data?.hp9_image1}`} className="img-fluid" alt="" />
           </Link>
         </div>
-      </div> */}
+      </div> */}      
+
+      <div className="dfbgghdfdfgdf pb-5">
+        <div className="container-fluid">
+          <div className="sdf58sdfs">
+            <h4 className="mb-3">Featured Products</h4>
+          </div>
+
+          <div className="fgjhdfgdfgdf">
+            <Swiper {...swiperConfig}>
+              {homepage?.data?.featured_product.map((featuredProduct) => (
+                <SwiperSlide key={featuredProduct.id}>
+                  <FeaturedProducts featuredProduct={featuredProduct} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </div>
 
       <div className="fbgvdsdfd6568 pb-5">
         <div className="container-fluid">
-          <div className="ghbgfgdf">
+          <div className="ghbgfgdf sdvfsdsefredraede">
             <div className="dkhweinjkwehijkr row align-items-center justify-content-between">
               <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfnghfd">
@@ -459,6 +477,7 @@ export const Home = () => {
                   {/* </Link> */}
                 </div>
               </div>
+              
               <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfnghfd">
                   {/* <Link to={homepage?.data?.h3_url2}> */}
@@ -475,6 +494,7 @@ export const Home = () => {
                   {/* </Link> */}
                 </div>
               </div>
+              
               <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfnghfd">
                   {/* <Link to={homepage?.data?.h3_url3}> */}
@@ -492,24 +512,6 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="dfbgghdfdfgdf pb-5">
-        <div className="container-fluid">
-          <div className="sdf58sdfs">
-            <h4 className="mb-3">Featured Products</h4>
-          </div>
-
-          <div className="fgjhdfgdfgdf">
-            <Swiper {...swiperConfig}>
-              {homepage?.data?.featured_product.map((featuredProduct) => (
-                <SwiperSlide key={featuredProduct.id}>
-                  <FeaturedProducts featuredProduct={featuredProduct} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
           </div>
         </div>
       </div>

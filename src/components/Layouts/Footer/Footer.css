@@ -68,7 +68,7 @@ footer .dbewjbruwerwer_inner .btn-main {
   border-radius: 5px;
 }
 footer .idnweihrwerwe {
-  background: var(--light-background-color);
+  background: #f5f5f5;
 }
 footer .footer-bottom ul li {
   list-style: none;
@@ -79,18 +79,24 @@ footer .footer-bottom .fb-payment-options li {
   display: inline;
   cursor: pointer;
 }
+
+footer .footer-bottom .fb-payment-options li p{
+  font-weight: 500;
+}
+
 footer .footer-bottom .fb-payment-options li img {
   width: 100%;
 }
 
 .duiwehihiwejiurwer{
-  background: var(--light-background-color);
+  background: #f5f5f5;
 }
 
 .asfrweewee{
   font-size: 14px;
 }
 
-.sfefaeewrweqqq li img{
-  width: 3.5rem !important;
+.sfefaeewrweqqq li img,
+.kajhdijojeijrrr li img{
+  max-height: 1rem !important;
 }
