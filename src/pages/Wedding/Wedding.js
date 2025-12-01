@@ -992,6 +992,77 @@ export const Wedding = () => {
           </div>
         </div>
       </div>
+      <div className="fbgvdsdfd6568 py-5">
+        <div className="container-fluid">
+          <div className="ghbgfgdf sdfwedweeerr">
+            <div className="row align-items-center">
+              <div className="col-lg-3 col-6">
+                <div className="dfnghfd text-center">
+                  <div className="sdhgdfg">
+                    <img src="./images/1762864712_69132e480619f.png" alt="" />
+                  </div>
+
+                  <div className="cfgncfgb dfgsfeeer">
+                    <h4>5M+</h4>
+                  </div>
+
+                  <div className="cfgncfgb">
+                    <h4>Successful Deliveries</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-6 ps-0">
+                <div className="dfnghfd fsrweerrr text-center">
+                  <div className="sdhgdfg">
+                    <img src="./images/1762864756_69132e7476842.png" alt="" />
+                  </div>
+
+                  <div className="cfgncfgb dfgsfeeer">
+                    <h4>1500+</h4>
+                  </div>
+
+                  <div className="cfgncfgb fsrweerrr">
+                    <h4>Designers</h4>
+                  </div>                  
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-6 ps-0">
+                <div className="dfnghfd text-center">
+                  <div className="sdhgdfg">
+                    <img src="./images/1762864756_69132e7476a2e.png" alt="" />
+                  </div>
+
+                  <div className="cfgncfgb dfgsfeeer">
+                    <h4>24/7</h4>
+                  </div>
+
+                  <div className="cfgncfgb">
+                    <h4>Customer Support</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-6">
+                <div className="dfnghfd fsrweerrr text-center">
+                  <div className="sdhgdfg">
+                    <img src="./images/1762864712_69132e480619f.png" alt="" />
+                  </div>
+
+                  <div className="cfgncfgb dfgsfeeer">
+                    <h4>75+</h4>
+                  </div>
+
+                  <div className="cfgncfgb">
+                    <h4>Countries Served</h4>
+                  </div>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <hr />
       <FooterTopComponent />
     </>
