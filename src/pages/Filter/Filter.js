@@ -35,10 +35,29 @@ export const Filter = () => {
   const [productsLoaded, setProductsLoaded] = useState(false);
   const [filtersLoaded, setFiltersLoaded] = useState(false);
 
+  const [mainCatgry, setMainCatgry] = useState([]);
+
   const search = useLocation().search;
-  const searchTerm = new URLSearchParams(search).get("search")?.trim() || "";  
-  
-  console.log(products);
+  const searchTerm = new URLSearchParams(search).get("search")?.trim() || "";
+
+
+  useEffect(() => {
+      const fetchMainCategory = async () => {
+          try {
+              const getresponse = await http.get("/product-category");
+              const allresponse = getresponse.data;
+              setMainCatgry(allresponse.data); 
+          } catch (error) {
+              console.error("Error fetching main category:", error);
+          }
+      };
+
+      fetchMainCategory();
+  }, []);
+
+
+  console.log(mainCatgry);
+
 
   useEffect(() => {
     setLoading(true);
@@ -171,7 +190,6 @@ export const Filter = () => {
     return <Loader />;
   }
 
-  // 2️⃣ Show 404 only after loading completed AND no category data
   if (!loading && filterCategories.length === 0) {
     return <PageNotFound />;
   }
@@ -253,7 +271,7 @@ export const Filter = () => {
                   id="res-filtr-btn"
                   onClick={() => setResFltrMenu(true)}
                 >
-                  <i class="fa-solid me-1 fa-filter"></i> Filter
+                  <i class="fa-solid me-1 fa-filter"></i> Refine
                 </h5>
 
                 <h6 onClick={() => resetFilter()} className="mb-0">Reset Filter</h6>
@@ -330,12 +348,14 @@ export const Filter = () => {
                   <div className="podwejorjwierwer">
                     <select name="" className="form-select" id="" onChange={(e) => setSortBy(e.target.value)}>
                       <option value="" selected disabled>
-                        Sort By: Recommended
+                        Sort By
                       </option>
                       
-                      {/* <option value="">Popularity</option> */}
+                      <option value="">Recommended</option>
 
                       <option value="NEW_ARRIVALS">New Arrivals</option>
+
+                      <option value="">Best Seller</option>
 
                       <option value="LOW_TO_HIGH">Price Low to High</option>
 

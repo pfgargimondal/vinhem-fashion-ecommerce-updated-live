@@ -102,11 +102,6 @@
   transition: 0.2s ease-in-out;
 }
 
-.doewjkrnhweiurwer {
-  max-height: 14rem;
-  overflow-y: auto;
-}
-
 .asdefwerrerer label.clr-label{
   border: 1px solid #fff !important;
 }
@@ -195,6 +190,10 @@
   transform: matrix(1, 0, 0, 1, -7, -7);
   transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.sub-catgry-filter.indiewjrwerewr .doewjroijwerwer.mb-3,
+.inside-sub-catgry-filter .radio-wrapper-5.mb-3{
+  margin-top: 1rem !important;
+}
 .doewjkrnhweiurwer .radio-wrapper-5 input[type=radio]:checked ~ span {
   opacity: 1;
 }
@@ -238,7 +237,18 @@
   height: 100%;
   border-radius: 50%;
 }
-
+.deowjnkrwere.bdfgsdfseewewrr,
+.doewjkrnhweiurwer.bdfgsdfseewewrr{
+  max-height: 14rem;
+  overflow-y: auto;
+}
+.dijwehirwer{
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.cdwehjirnweijrowejrowejr{
+  cursor: pointer;
+}
 .view-options div i {
   font-size: 1.6rem;
   cursor: pointer;
@@ -292,12 +302,229 @@
   color: var(--text-gray-color);
 }
 
-.bdfgsdfseewewrr{
-  max-height: 14rem;
-  overflow-y: auto;
+
+/*price range*/
+
+ .dohwekrjiwejr .wrapper {
+	 width: 100%;
+	 background: #fff;
+}
+ .dohwekrjiwejr .price-input {
+	 width: 100%;
+	 display: flex;
+	 margin: 10px 0 1.4rem;
+}
+ .dohwekrjiwejr .price-input .field {
+	 display: flex;
+	 width: 100%;
+	 height: 35px;
+	 align-items: center;
+}
+ .dohwekrjiwejr .field input {
+	 width: 100%;
+	 height: 100%;
+	 outline: none;
+	 font-size: 1rem;
+	 margin-left: 8px;
+	 border-radius: 5px;
+	 text-align: center;
+	 border: 1px solid #999;
+	 -moz-appearance: textfield;
+}
+ .dohwekrjiwejr input[type="number"]::-webkit-outer-spin-button, .dohwekrjiwejr input[type="number"]::-webkit-inner-spin-button {
+	 -webkit-appearance: none;
+}
+ .dohwekrjiwejr .price-input .separator {
+	 width: 50px;
+	 display: flex;
+	 font-size: 19px;
+	 align-items: center;
+	 justify-content: center;
+}
+ .dohwekrjiwejr .slider {
+	 height: 5px;
+	 position: relative;
+	 background: #ddd;
+	 border-radius: 5px;
+}
+ .dohwekrjiwejr .slider .progress {
+	 height: 100%;
+	 left: 25%;
+	 right: 25%;
+	 position: absolute;
+	 border-radius: 5px;
+	 background: var(--pink-main-color);
+}
+ .dohwekrjiwejr .range-input {
+	 position: relative;
+}
+ .dohwekrjiwejr .range-input input {
+	 position: absolute;
+	 width: 100%;
+	 height: 5px;
+	 top: -5px;
+	 background: none;
+	 pointer-events: none;
+	 -webkit-appearance: none;
+	 -moz-appearance: none;
+}
+ .dohwekrjiwejr input[type="range"]::-webkit-slider-thumb {
+	 height: 17px;
+	 width: 17px;
+	 border-radius: 50%;
+	 background: #fff;
+	 pointer-events: auto;
+	 -webkit-appearance: none;
+   border: 1px solid var(--pink-main-color);
+   cursor: pointer;
+}
+ .dohwekrjiwejr input[type="range"]::-moz-range-thumb {
+	 height: 17px;
+	 width: 17px;
+	 border: none;
+	 border-radius: 50%;
+	 background: #17a2b8;
+	 pointer-events: auto;
+	 -moz-appearance: none;
+	 box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+ .dohwekrjiwejr .support-box {
+	 top: 2rem;
+	 position: relative;
+	 bottom: 0;
+	 text-align: center;
+	 display: block;
+}
+ .dohwekrjiwejr .b-btn {
+	 color: white;
+	 text-decoration: none;
+	 font-weight: bold;
+}
+ .dohwekrjiwejr .b-btn.paypal i {
+	 color: blue;
+}
+ .dohwekrjiwejr .b-btn:hover {
+	 text-decoration: none;
+	 font-weight: bold;
+}
+ .dohwekrjiwejr .b-btn i {
+	 font-size: 20px;
+	 color: yellow;
+	 margin-top: 2rem;
 }
 
-.bdfgsdfseewewrr .doewjkrnhweiurwer {
-    max-height: none;
-    overflow-y: initial;
+
+/*checkbox start*/
+
+:root {
+	 --s-xsmall: 0.625em;
+	 --s-small: 1.2em;
+	 --border-width: 1px;
+	 --c-primary-20-percent-opacity: #000;
+	 --c-primary-10-percent-opacity: #000;
+	 --t-base: 0.4s;
+	 --t-fast: 0.2s;
+	 --e-in: ease-in;
+	 --e-out: cubic-bezier(0.11, 0.29, 0.18, 0.98);
 }
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .visuallyhidden {
+	 border: 0;
+	 clip: rect(0 0 0 0);
+	 height: 1px;
+	 margin: -1px;
+	 overflow: hidden;
+	 padding: 0;
+	 position: absolute;
+	 width: 1px;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox {
+	 display: inline-flex;
+	 align-items: center;
+	 justify-content: flex-start;
+   cursor: pointer;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox + .checkbox {
+	 margin-top: var(--s-small);
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__symbol {
+	 display: inline-block;
+	 display: flex;
+	 margin-right: calc(var(--s-small) * 0.7);
+	 border: var(--border-width) solid var(--text-gray-color);
+	 position: relative;
+	 border-radius: 0.1em;
+	 width: 1.4em;
+	 height: 1.4em;
+	 transition: box-shadow var(--t-base) var(--e-out), background-color var(--t-base);
+	 box-shadow: 0 0 0 0 var(--c-primary-10-percent-opacity);
+}
+
+.cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__trigger:checked + .checkbox__symbol{
+  border: var(--border-width) solid var(--pink-main-color);
+}
+
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__symbol:after {
+	 content: "";
+	 position: absolute;
+	 top: 0.5em;
+	 left: 0.5em;
+	 width: 0.25em;
+	 height: 0.25em;
+	 background-color: var(--pink-main-color);
+	 opacity: 0;
+	 border-radius: 3em;
+	 transform: scale(1);
+	 transform-origin: 50% 50%;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox .icon-checkbox {
+	 width: 1em;
+	 height: 1em;
+	 margin: auto;
+	 fill: none;
+	 stroke-width: 3;
+	 stroke: currentColor;
+	 stroke-linecap: round;
+	 stroke-linejoin: round;
+	 stroke-miterlimit: 10;
+	 color: var(--pink-main-color);
+	 display: inline-block;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox .icon-checkbox path {
+	 transition: stroke-dashoffset var(--t-fast) var(--e-in);
+	 stroke-dasharray: 30px, 31px;
+	 stroke-dashoffset: 31px;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__textwrapper {
+	 margin: 0;
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__trigger:checked + .checkbox__symbol:after {
+	 -webkit-animation: ripple-33 1.5s var(--e-out);
+	 animation: ripple-33 1.5s var(--e-out);
+}
+ .cdwehjirnweijrowejrowejr .checkbox-wrapper-33 .checkbox__trigger:checked + .checkbox__symbol .icon-checkbox path {
+	 transition: stroke-dashoffset var(--t-base) var(--e-out);
+	 stroke-dashoffset: 0px;
+}
+
+ @-webkit-keyframes ripple-33 {
+	 from {
+		 transform: scale(0);
+		 opacity: 1;
+	}
+	 to {
+		 opacity: 0;
+		 transform: scale(12);
+	}
+}
+ @keyframes ripple-33 {
+	 from {
+		 transform: scale(0);
+		 opacity: 1;
+	}
+	 to {
+		 opacity: 0;
+		 transform: scale(12);
+	}
+}
+
+/*checkbox end*/
