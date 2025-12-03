@@ -4,15 +4,17 @@ import { filterReducer } from "../reducers/filterReducers";
 
 const filterInitialState = {
     productList: [],
-    mainCategory: null,
-    subCategory: null,
-    filterCategory: null,
-    color: null,
-    material: null,
-    designer: null,    
-    plusSize: null,
-    occasion: null,
-    size: null,
+    mainCategory: [],
+    subCategory: [],
+    filterCategory: [],
+    color: [],
+    material: [],
+    designer: [],    
+    plusSize: [],
+    occasion: [],
+    size: [],
+    celebrity: [],
+    shippingTime: [],
     sortBy: null,
     newIn: false,
     readyToShip: null,
@@ -38,6 +40,7 @@ export const FilterProvider = ({children}) => {
         })
     }
 
+    
 
     //main category
 
@@ -51,87 +54,112 @@ export const FilterProvider = ({children}) => {
     }
 
     function filterMainCategory(products) {
-        return state.mainCategory
-            ? products.filter(product => product.product_category.toLowerCase().trim() === state.mainCategory.toLowerCase().trim()) : products;
+        if (!state.mainCategory || state.mainCategory.length === 0) {
+            return products;
+        }
+
+        return products.filter(product => {
+            const productCategory = product?.product_category?.toLowerCase();
+            return state.mainCategory.includes(productCategory);
+        });
     }
 
 
     //sub category
 
     function setSubCategory(mainCategory, subCategory) {
+        if (!subCategory) return;
         dispatch({
             type: "SUB_CATEGORY",
-            payload: {
-                mainCategory: mainCategory,
-                subCategory: subCategory
-            }
-        })
+            payload: { mainCategory, subCategory }
+        });
     }
 
     function filterSubCategory(products) {
-        return (state.mainCategory && state.subCategory)
-            ? products.filter(product => (
-                product.product_category.toLowerCase().trim() === state.mainCategory.toLowerCase().trim()
-            ) && (
-                product.product_sub_category.toLowerCase().trim() === state.subCategory.toLowerCase().trim()
-            )) : products;
+        const selectedMain = state.mainCategory || [];
+        const selectedSub = state.subCategory || [];
+
+        return products.filter(product => {
+            const mainCat = product.product_category?.toLowerCase().trim();
+            const subCat = product.product_sub_category?.toLowerCase().trim();
+
+            const mainMatch = selectedMain.length ? selectedMain.includes(mainCat) : true;
+            const subMatch = selectedSub.length ? selectedSub.includes(subCat) : true;
+
+            return mainMatch && subMatch;
+        });
     }
 
 
     //filter category
 
     function setFilterCategory(mainCategory, subCategory, filterCategory) {
+        if (!mainCategory || !subCategory || !filterCategory) return;
+
         dispatch({
             type: "FILTER_CATEGORY",
             payload: {
-                mainCategory: mainCategory,
-                subCategory: subCategory,
-                filterCategory: filterCategory
+                mainCategory: mainCategory.toLowerCase(),
+                subCategory: subCategory.toLowerCase(),
+                filterCategory: filterCategory.toLowerCase()
             }
-        })
+        });
     }
 
     function filterFilterCategory(products) {
-        return (state.mainCategory && state.subCategory && state.filterCategory)
-            ? products.filter(product => (
-                product.product_category?.toLowerCase().trim() === state.mainCategory.toLowerCase().trim()
-            ) && (
-                product.product_sub_category?.toLowerCase().trim() === state.subCategory.toLowerCase().trim()
-            ) && (
-                product.filter_categories?.toLowerCase().trim() === state.filterCategory.toLowerCase().trim()
-            )) : products;
+        const selectedFilters = state.filterCategory || [];
+        const selectedMain = state.mainCategory || [];
+        const selectedSub = state.subCategory || [];
+
+        return products.filter(product => {
+            const mainCat = product.product_category?.toLowerCase().trim();
+            const subCat = product.product_sub_category?.toLowerCase().trim();
+            const filterCat = product.filter_categories?.toLowerCase().trim();
+
+            const mainMatch = selectedMain.length ? selectedMain.includes(mainCat) : true;
+            const subMatch = selectedSub.length ? selectedSub.includes(subCat) : true;
+            const filterMatch = selectedFilters.length ? selectedFilters.includes(filterCat) : true;
+
+            return mainMatch && subMatch && filterMatch;
+        });
     }
 
 
     //color
 
     function setColor(color) {
+        if (!color) return;
+
         dispatch({
             type: "COLOR",
-            payload: {
-                color: color
+            payload: { 
+                color: color.toLowerCase()
             }
-        })
+        });
     }
 
     function filterColor(products) {
-        return state.color ? products.filter(product => product.color === state.color) : products;
-    }    
+        const selectedColors = state.color || [];
+        return selectedColors.length ? products.filter(product => selectedColors.includes(product.color?.toLowerCase())) : products;
+    }
 
 
     //material
 
     function setMaterial(material) {
+        if (!material) return;
+
         dispatch({
             type: "MATERIAL",
-            payload: {
-                material: material
+            payload: { 
+                material: material.toLowerCase() 
             }
-        })
+        });
     }
 
     function filterMaterial(products) {
-        return state.material ? products.filter(product => product.fabric?.toLowerCase().trim() === state.material?.toLowerCase().trim()) : products;
+        const selectedMaterials = state.material || [];
+        return selectedMaterials.length ? products.filter(product => selectedMaterials.includes(product.fabric?.toLowerCase().trim())) : products;
     }
     
 
@@ -139,42 +167,49 @@ export const FilterProvider = ({children}) => {
     //designer
 
     function setDesigner(designer) {
+        if (!designer) return;
+
         dispatch({
             type: "DESIGNER",
-            payload: {
-                designer: designer
+            payload: { 
+                designer: designer.toLowerCase() 
             }
-        })
+        });
     }
 
     function filterDesigner(products) {
-        return state.designer ? products.filter(product => product.designer === state.designer) : products;
-    }    
+        const selectedDesigners = state.designer || [];
+        return selectedDesigners.length ? products.filter(product => selectedDesigners.includes(product.designer?.toLowerCase())) : products;
+    }   
 
 
     //plus size
 
     function setPlusSize(plusSize) {
+        if (!plusSize) return;
+
         dispatch({
             type: "PLUS_SIZE",
-            payload: {
-                plusSize: plusSize
+            payload: { 
+                plusSize: plusSize.toLowerCase()
             }
-        })
+        });
     }
 
     function filterPlusSize(products) {
-        if (!state.plusSize) return products;
+        const selectedSizes = state.plusSize || [];
+        if (!selectedSizes.length) return products;
 
         return products.filter(product => {
             const sizes = product.product_plus_size;
 
             if (Array.isArray(sizes)) {
-                return sizes.includes(state.plusSize);
+                return selectedSizes.some(size => sizes.map(s => s.toLowerCase()).includes(size));
             }
 
             if (typeof sizes === "string") {
-                return sizes.split(",").map(s => s.trim().toLowerCase()).includes(state.plusSize.toLowerCase());
+                const sizeArray = sizes.split(",").map(s => s.trim().toLowerCase());
+                return selectedSizes.some(size => sizeArray.includes(size));
             }
 
             return false;
@@ -186,16 +221,22 @@ export const FilterProvider = ({children}) => {
     //occasion
 
     function setOccasion(occasion) {
+        if (!occasion) return;
+
         dispatch({
             type: "OCCASION",
-            payload: {
-                occasion: occasion
-            }
-        })
+            payload: { occasion: occasion.toLowerCase() }
+        });
     }
 
     function filterOccasion(products) {
-        return state.occasion ? products.filter(product => product.occasion === state.occasion) : products;
+        const selectedOccasions = state.occasion || [];
+        if (!selectedOccasions.length) return products;
+
+        return products.filter(product => {
+            const productOccasion = product.occasion?.toLowerCase();
+            return selectedOccasions.includes(productOccasion);
+        });
     }
 
 
@@ -203,17 +244,76 @@ export const FilterProvider = ({children}) => {
     //size
 
     function setSize(size) {
+        if (!size) return;
+
         dispatch({
             type: "SIZE",
-            payload: {
-                size: size
+            payload: { 
+                size: size.toLowerCase() 
             }
-        })
+        });
     }
 
     function filterSize(products) {
-        return state.size ? products.filter(product => product?.size?.split(",").map(s => s.trim()).includes(state.size)) : products;
+        const selectedSizes = state.size || [];
+        if (!selectedSizes.length) return products;
+
+        return products.filter(product => {
+            const productSizes = product?.size?.split(",").map(s => s.trim().toLowerCase()) || [];
+            return selectedSizes.some(size => productSizes.includes(size));
+        });
     }
+
+
+
+    //celebrity
+
+    function setCelebrity(celebrity) {
+        if (!celebrity) return;
+
+        dispatch({
+            type: "CELEBRITY",
+            payload: { 
+                celebrity: celebrity.toLowerCase() 
+            }
+        });
+    }
+
+    function filterCelebrity(products) {
+        const selectedCelebrities = state.celebrity || [];
+        if (!selectedCelebrities.length) return products;
+
+        return products.filter(product => {
+            const productCelebrity = product.celebrity?.toLowerCase();
+            return selectedCelebrities.includes(productCelebrity);
+        });
+    }
+
+
+
+    //shipping time
+
+    function setShippingTime(shippingTime) {
+        if (!shippingTime) return;
+
+        dispatch({
+            type: "SHIPPING_TIME",
+            payload: { 
+                shippingTime: shippingTime.toLowerCase() 
+            }
+        });
+    }
+
+    function filterShippingTime(products) {
+        const selectedShippingTimes = state.shippingTime || [];
+        if (!selectedShippingTimes.length) return products;
+
+        return products.filter(product => {
+            const productShippingTime = product.shippingTime?.toLowerCase();
+            return selectedShippingTimes.includes(productShippingTime);
+        });
+    }
+
     
 
     //sortby
@@ -234,6 +334,8 @@ export const FilterProvider = ({children}) => {
             return products.sort((a, b) => b.selling_price - a.selling_price);
         } else if (state.sortBy === "NEW_ARRIVALS") {
             return products.filter(product => product.new_arrival === "1" || product?.new_arrival === true);
+        } else if (state.sortBy === "BEST_SELLER") {
+            return products.filter(product => product.best_seller === "1");
         } else if (state.sortBy === "DISCOUNT_LOW_TO_HIGH") {
             return products.sort((a, b) => a.discount - b.discount);
         } else {
@@ -241,6 +343,9 @@ export const FilterProvider = ({children}) => {
         }
     }
 
+    console.log(state.sortBy)
+
+    
 
     //new arrival
 
@@ -256,6 +361,7 @@ export const FilterProvider = ({children}) => {
     function filterNewArrival(products) {
         return state.newIn ? products.filter(product => product.new_arrival === "1" || product?.new_arrival === true) : products;
     }
+
 
 
     //ready to ship
@@ -315,7 +421,7 @@ export const FilterProvider = ({children}) => {
     }
 
 
-    const filteredProducts = filterReadyToShip(filterNewArrival(filterOnSale(filterCstmFit(filterSortBy(filterSize(filterOccasion(filterPlusSize(filterDesigner(filterMaterial(filterColor(filterFilterCategory(filterSubCategory(filterMainCategory(state.productList))))))))))))));
+    const filteredProducts = filterReadyToShip(filterNewArrival(filterOnSale(filterCstmFit(filterSortBy(filterShippingTime(filterCelebrity(filterSize(filterOccasion(filterPlusSize(filterDesigner(filterMaterial(filterColor(filterFilterCategory(filterSubCategory(filterMainCategory(state.productList))))))))))))))));
 
 
 
@@ -332,6 +438,7 @@ export const FilterProvider = ({children}) => {
         setSubCategory,
         filterCtgry: state.filterCategory,
         setFilterCategory,
+        color: state.color,
         setColor,
         material: state.material,
         setMaterial,
@@ -343,6 +450,10 @@ export const FilterProvider = ({children}) => {
         setOccasion,
         size: state.size,
         setSize,
+        celebrity: state.celebrity,
+        setCelebrity,
+        shippingTime: state.shippingTime,
+        setShippingTime,
         sortBy: state.sortBy,
         setSortBy,
         setNewArrival,

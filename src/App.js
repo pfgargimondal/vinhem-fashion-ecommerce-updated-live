@@ -1,4 +1,4 @@
-import { Header, Footer } from "./components";
+import { Header, Footer, ScrollToTop } from "./components";
 import { AllRoutes } from "./routes/AllRoutes.js";
 import { useLocation } from "react-router-dom";
 
@@ -27,6 +27,8 @@ function App() {
       </main>
 
       <Footer shouldHideFullHeaderFooterRoutes={shouldHideFullHeaderFooterRoutes} /> 
+
+      <ScrollToTop />
     </div>
   );
 }

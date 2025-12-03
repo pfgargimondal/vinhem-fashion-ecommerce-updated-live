@@ -55,8 +55,8 @@ export const Filter = () => {
       fetchMainCategory();
   }, []);
 
+  console.log(products);
 
-  console.log(mainCatgry);
 
 
   useEffect(() => {
@@ -126,8 +126,6 @@ export const Filter = () => {
     // eslint-disable-next-line
   }, [location.pathname, category, subcategory, searchTerm]);
 
-  // console.log(searchTerm)
-
 
   const { wishlistIds, addToWishlist, removeFromWishlist } = useWishlist(); // ✅ from context
 
@@ -194,6 +192,8 @@ export const Filter = () => {
     return <PageNotFound />;
   }
 
+  const filterTopBannerHide = mainCatgry.map(mnctgySlug => mnctgySlug.mainCategory_slug);
+
 
   return (
     <div className="filter-wrapper pt-2">
@@ -233,27 +233,28 @@ export const Filter = () => {
           </h4>
         </div>
 
-        <div
-          className="advtsmnt-bnnr my-4 overflow-hidden"
-          style={{ borderRadius: "1rem" }}
-        >
-          {allProductdata?.filter_banner
-            ? (
-                <img
-                  src={`${allProductdata?.banner_image_url}/${allProductdata?.filter_banner?.image ?? ""}`}
-                  className="img-fluid"
-                  alt=""
-                />
-              )
-            : (
-                <img
-                  src="images/fltrdbnnr.png"
-                  className="img-fluid"
-                  alt=""
-                />
-              )}
-          {/* <img src="images/fltrdbnnr.png" className="img-fluid" alt="" /> */}
-        </div>
+        {category && subcategory && (
+          <div
+            className="advtsmnt-bnnr my-4 overflow-hidden"
+            style={{ borderRadius: "1rem" }}
+          >
+            {allProductdata?.filter_banner
+              ? (
+                  <img
+                    src={`${allProductdata?.banner_image_url}/${allProductdata?.filter_banner?.image}`}
+                    className="img-fluid"
+                    alt=""
+                  />
+                )
+              : (
+                  <img
+                    src="../images/fltrdbnnr.png"
+                    className="img-fluid"
+                    alt=""
+                  />
+                )}
+          </div>
+        )}
 
         {resFltrMenu && (
           <div
@@ -290,6 +291,29 @@ export const Filter = () => {
 
           <div className="col-lg-9">
             <div className="filtered-products">
+              {filterTopBannerHide.includes(category) && !subcategory && (
+                <div
+                  className="advtsmnt-bnnr mb-4 overflow-hidden"
+                  style={{ borderRadius: "1rem" }}
+                >
+                  {allProductdata?.filter_banner
+                    ? (
+                        <img
+                          src={`${allProductdata?.banner_image_url}/${allProductdata?.filter_banner?.image}`}
+                          className="img-fluid"
+                          alt=""
+                        />
+                      )
+                    : (
+                        <img
+                          src="images/fltrdbnnr.png"
+                          className="img-fluid"
+                          alt=""
+                        />
+                      )}
+                </div>
+              )}
+
               <div className="iduhweihriweurwerwer row align-items-center pb-3">
                 <div className="col-lg-9">
                   <div className="idasijhdmsiejr d-flex align-items-center">
@@ -351,11 +375,11 @@ export const Filter = () => {
                         Sort By
                       </option>
                       
-                      <option value="">Recommended</option>
+                      <option value="RECOMMENDED">Recommended</option>
 
                       <option value="NEW_ARRIVALS">New Arrivals</option>
 
-                      <option value="">Best Seller</option>
+                      <option value="BEST_SELLER">Best Seller</option>
 
                       <option value="LOW_TO_HIGH">Price Low to High</option>
 
