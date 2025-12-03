@@ -999,15 +999,15 @@ export const Wedding = () => {
               <div className="col-lg-3 col-6">
                 <div className="dfnghfd text-center">
                   <div className="sdhgdfg">
-                    <img src="./images/1762864712_69132e480619f.png" alt="" />
+                    <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image1}`} alt={WeddingDetails?.data?.section5to9?.section10_text1} />
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>5M+</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_number1}</h4>
                   </div>
 
                   <div className="cfgncfgb">
-                    <h4>Successful Deliveries</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_text1}</h4>
                   </div>
                 </div>
               </div>
@@ -1015,15 +1015,15 @@ export const Wedding = () => {
               <div className="col-lg-3 col-6 ps-0">
                 <div className="dfnghfd fsrweerrr text-center">
                   <div className="sdhgdfg">
-                    <img src="./images/1762864756_69132e7476842.png" alt="" />
+                    <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image2}`} alt={WeddingDetails?.data?.section5to9?.section10_text2} />
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>1500+</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_number2}</h4>
                   </div>
 
                   <div className="cfgncfgb fsrweerrr">
-                    <h4>Designers</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_text2}</h4>
                   </div>                  
                 </div>
               </div>
@@ -1031,15 +1031,15 @@ export const Wedding = () => {
               <div className="col-lg-3 col-6 ps-0">
                 <div className="dfnghfd text-center">
                   <div className="sdhgdfg">
-                    <img src="./images/1762864756_69132e7476a2e.png" alt="" />
+                    <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image3}`} alt={WeddingDetails?.data?.section5to9?.section10_text3} />
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>24/7</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_number3}</h4>
                   </div>
 
                   <div className="cfgncfgb">
-                    <h4>Customer Support</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_text3}</h4>
                   </div>
                 </div>
               </div>
@@ -1047,15 +1047,15 @@ export const Wedding = () => {
               <div className="col-lg-3 col-6">
                 <div className="dfnghfd fsrweerrr text-center">
                   <div className="sdhgdfg">
-                    <img src="./images/1762864712_69132e480619f.png" alt="" />
+                    <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image4}`} alt={WeddingDetails?.data?.section5to9?.section10_text4} />
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>75+</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_number4}</h4>
                   </div>
 
                   <div className="cfgncfgb">
-                    <h4>Countries Served</h4>
+                    <h4>{WeddingDetails?.data?.section5to9?.section10_text4}</h4>
                   </div>                  
                 </div>
               </div>
