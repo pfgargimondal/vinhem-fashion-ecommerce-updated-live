@@ -8,7 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 
 
 export default function FilterSection({ setResFltrMenu, allFilterMappingdata, filterCategories }) {
-  const { mainCategory, setMainCategory, subCategory, setSubCategory, filterCtgry, setFilterCategory, color, setColor, material, setMaterial, designer, setDesigner, plusSize, setPlusSize, occasion, setOccasion, size, setSize, setCelebrity, setShippingTime, resetFilter } = useFilter();
+  const { setMainCategory, setSubCategory, setFilterCategory, color, setColor, setMaterial, setDesigner, setPlusSize, setOccasion, setSize, setCelebrity, setShippingTime, resetFilter } = useFilter();
   const [selectedTheme, setSelectedTheme] = useState("");
   const [sbctgry, setSbctgry] = useState(null);
   const [insdSbctgry, setInsdSbctgry] = useState(null);
