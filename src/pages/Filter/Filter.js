@@ -242,14 +242,14 @@ export const Filter = () => {
               ? (
                   <img
                     src={`${allProductdata?.banner_image_url}/${allProductdata?.filter_banner?.image}`}
-                    className="img-fluid"
+                    className="img-fluid w-100"
                     alt=""
                   />
                 )
               : (
                   <img
                     src="../images/fltrdbnnr.png"
-                    className="img-fluid"
+                    className="img-fluid w-100"
                     alt=""
                   />
                 )}
@@ -275,7 +275,7 @@ export const Filter = () => {
                   <i class="fa-solid me-1 fa-filter"></i> Refine
                 </h5>
 
-                <h6 onClick={() => resetFilter()} className="mb-0">Reset Filter</h6>
+                <h6 onClick={() => resetFilter()} className="mb-0">Clear All</h6>
               </div>
 
               <div
@@ -300,14 +300,14 @@ export const Filter = () => {
                     ? (
                         <img
                           src={`${allProductdata?.banner_image_url}/${allProductdata?.filter_banner?.image}`}
-                          className="img-fluid"
+                          className="img-fluid w-100"
                           alt=""
                         />
                       )
                     : (
                         <img
                           src="images/fltrdbnnr.png"
-                          className="img-fluid"
+                          className="img-fluid w-100"
                           alt=""
                         />
                       )}
@@ -370,12 +370,8 @@ export const Filter = () => {
 
                 <div className="col-lg-3">
                   <div className="podwejorjwierwer">
-                    <select name="" className="form-select" id="" onChange={(e) => setSortBy(e.target.value)}>
-                      <option value="" selected disabled>
-                        Sort By
-                      </option>
-                      
-                      <option value="RECOMMENDED">Recommended</option>
+                    <select name="" className="form-select" id="" onChange={(e) => setSortBy(e.target.value)}>                      
+                      <option selected value="RECOMMENDED">Sort By: Recommended</option>
 
                       <option value="NEW_ARRIVALS">New Arrivals</option>
 
@@ -391,7 +387,7 @@ export const Filter = () => {
                 </div>
               </div>
 
-              <div className="products-wrapper filtr-wrppr mt-3">
+              <div className="products-wrapper filtr-wrppr pt-3">
                 <div className="row">
                   {products?.length > 0 ? (
                     products?.map((product) => (

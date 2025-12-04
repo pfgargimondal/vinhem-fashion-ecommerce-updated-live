@@ -30,7 +30,7 @@
 
 .gdfgdf215 {
   width: 100%;
-  height: 600px;
+  height: 470px;
 }
 
 .gdfgdf215 img {
@@ -223,8 +223,9 @@ li.dfhdfg{
 
 .dfhdfgd464 h2 {
   color: #000;
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .dfhdfgd464 h2.mb-3{
@@ -275,7 +276,7 @@ li.dfhdfg{
 
 .nhgf65dfgdf {
   width: 100%;
-  height: 100%;
+  height: 375px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border-radius: 10px;
   overflow: hidden;
@@ -325,6 +326,7 @@ li.dfhdfg{
 .sdf58sdfs h4 {
   font-size: 30px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .fgnhfgh h2.mb-3,
@@ -334,7 +336,7 @@ li.dfhdfg{
 }
 
 .dfgyhdfgdf {
-  height: 100%;
+  height: 375px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -343,6 +345,7 @@ li.dfhdfg{
 .dfgyhdfgdf img{
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .dfgyhdfgdf span {
@@ -356,6 +359,14 @@ li.dfhdfg{
 .dfgyhdfgdf h2 {
   padding-top: 6px;
   line-height: 50px;
+}
+
+.fsesadadwwe .dfnghfd{
+  padding-inline: 4rem;
+}
+
+.fsesadadwwe .dfnghfd5{
+  padding-inline: 3rem;
 }
 
 .dftgh525 {

@@ -14,6 +14,8 @@ export function CartProvider({ children }) {
   const [appliedDiscount, setAppliedDiscount] = useState(0);
   const [couponApplied, setCouponApplied] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  // eslint-disable-next-line
+  const [loading, setLoading] = useState(false);
 
 
   const resetCart = () => {
@@ -61,6 +63,8 @@ export function CartProvider({ children }) {
       return;
     }
 
+    setLoading(true);
+
     try {
       const res = await http.post(
         "/user/user-add-cart",
@@ -79,6 +83,8 @@ export function CartProvider({ children }) {
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong while adding to cart");
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -93,6 +99,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider value={{ 
+      loading,
       cartCount, 
       addToCart, 
       fetchCartCount, 

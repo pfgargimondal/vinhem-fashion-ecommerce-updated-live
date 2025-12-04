@@ -41,7 +41,8 @@ export const CurrencyProvider = ({ children }) => {
     return new Intl.NumberFormat(currency.locale || "en-IN", {
       style: "currency",
       currency: currency.currency_code || "INR",
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(convertedPrice);
   };
 

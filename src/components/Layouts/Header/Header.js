@@ -83,9 +83,6 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
 
 
-  console.log(mainCategory);
-
-
   useEffect(() => {
       const fetchMainCategory = async () => {
           try {
@@ -432,8 +429,9 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                       <div className="header-main-wrapper">
                           {mainCategory?.map((category) => {
 
-                            const leftBanners = category.mainCategory_banner?.slice(0, 2);  // first 2 images
-                            const rightBanners = category.mainCategory_banner?.slice(2, 4); // next 2 images
+                            const bannerCat = mainCategory.find(
+                              item => item.mainCategory_banner?.length > 0
+                            );
 
                             return (
                               <SwiperSlide key={category.id}>
@@ -446,7 +444,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                     <div className="h-m-m-inner bg-white py-2 mt-3">
                                       <div className="container-fluid">
                                         <div className="row">
-                                          <div className="col-lg-6">
+                                          <div className="col-lg-5">
                                             <div className="ojkmiweee_left py-3">
                                               <div className="row">
                                                 {category.head_categories?.map((headCat) => (
@@ -492,40 +490,63 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                             </div>
                                           </div>
 
-                                          <div className="col-lg-6">
+                                          <div className="col-lg-7">
                                             <div className="ojkmiweee_right">
                                               <div className="row">
                                                 <div className="col-lg-7">
                                                   <div className="row">
-                                                    {leftBanners?.map((b) => (
-                                                      <div className="col-lg-6" key={b.id}>
-                                                        <div className="pkopkerrwer text-center">
+                                                    <div className="col-lg-6">
+                                                      <div className="vertical-image">
+                                                        <div className="pkopkerrwer sfsdfweweweqwq text-center">
                                                           <img
-                                                            src={`${b.category_bannerImage_url}/${b.category_bannerImage}`}
+                                                            src={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage_url}/${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage1}`}
                                                             className="w-100"
-                                                            alt=""
+                                                            alt={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle1}`}
                                                           />
                                                           <div className="dkewbjnrkwejrwer mt-2">
-                                                            <a href={b.category_bannerURL}>SHOP NOW</a>
+                                                            <a href={bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle1}>SHOP NOW</a>
                                                           </div>
                                                         </div>
                                                       </div>
-                                                    ))}
+                                                    </div>
+
+                                                    <div className="col-lg-6">
+                                                      <div className="vertical-image">
+                                                        <div className="pkopkerrwer sfsdfweweweqwq text-center">
+                                                          <img
+                                                            src={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage_url}/${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage1}`}
+                                                            className="w-100"
+                                                            alt={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle1}`}
+                                                          />
+                                                          <div className="dkewbjnrkwejrwer mt-2">
+                                                            <a href={bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle1}>SHOP NOW</a>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
                                                   </div>
                                                 </div>                                    
 
                                                 <div className="col-lg-5">
-                                                  {rightBanners?.map((b, index) => (
-                                                    <div className="pkopkerrwer safsrfwee text-center mb-4" key={index}>
-                                                      <Link to={b.category_bannerURL}>
-                                                        <img
-                                                          src={`${b.category_bannerImage_url}/${b.category_bannerImage}`}
+                                                  <div className="pkopkerrwer safsrfwee text-center mb-4">
+                                                    <Link to="/">
+                                                      <img
+                                                          src={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage_url}/${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage3}`}
                                                           className="w-100"
-                                                          alt=""
+                                                          alt={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle3}`}
                                                         />
-                                                      </Link>
-                                                    </div>
-                                                  ))}
+                                                    </Link>
+                                                  </div>
+
+                                                  <div className="pkopkerrwer safsrfwee text-center mb-4">
+                                                    <Link to="/">
+                                                      <img
+                                                        src={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage_url}/${bannerCat?.mainCategory_banner?.[0]?.category_bannerImage4}`}
+                                                        className="w-100"
+                                                        alt={`${bannerCat?.mainCategory_banner?.[0]?.category_bannerTitle4}`}
+                                                      />
+                                                    </Link>
+                                                  </div>
                                                 </div>
                                               </div>
                                             </div>

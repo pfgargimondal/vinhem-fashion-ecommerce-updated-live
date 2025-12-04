@@ -27,12 +27,14 @@ import { useWishlist } from "../../context/WishlistContext";
 import { DesignerSizeChart } from "../../components/Elements/DsignerSizeChart/DsignerSizeChart";
 import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
+import Loader from "../../components/Loader/Loader";
 
 
 export const ProductDetail = () => {
 
   const { token, user } = useAuth();
-  const { addToCart } = useCart();
+  const { loading: cartLoading, addToCart } = useCart();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
@@ -239,11 +241,14 @@ export const ProductDetail = () => {
   
   useEffect(() => {
     const fetchProductDetailsPage = async () => {
+      setLoading(true);
       try {
         const getresponse = await http.get(`/fetch-product-details/${slug}`);
         SetproductDetails(getresponse.data);
       } catch (error) {
         console.error("Error fetching product details:", error);
+      } finally{
+        setLoading(false);
       }
     };
 
@@ -298,36 +303,51 @@ export const ProductDetail = () => {
     const newSize = e.target.value;
     setSelectedSize(newSize);
 
-    // Find the selected size row
-    const selectedInventory =
-      productDetails?.data?.product_allSize?.find(
-        (item) =>
-          item.filter_size === newSize || item.plus_sizes === newSize
-      ) || {};
+    const allSizes = productDetails?.data?.product_allSize || [];
+    const base = productDetails?.data || {};
 
-    const newQty = Number(
-      selectedInventory?.mto_quantity || productDetails?.data?.mto_quantity || 0
+    // Find selected row from inventory
+    const selectedInventory = allSizes.find(
+      (item) => item.filter_size === newSize || item.plus_sizes === newSize
     );
-    setAvailableQty(newQty);
 
-    if (selectedQuantity > newQty) {
-      setSelectedQuantity(1);
+    // ----------------------------
+    // ✅ Quantity Logic
+    // ----------------------------
+    let newQty = 0;
+
+    if (selectedInventory) {
+      // If selected is filter size
+      if (selectedInventory.filter_size === newSize) {
+        newQty = Number(selectedInventory.mto_quantity || 0);
+      }
+      // If selected is plus size
+      else if (selectedInventory.plus_sizes === newSize) {
+        newQty = Number(selectedInventory.plus_size_quantity || 0);
+      }
+    } else {
+      // No Inventory → fallback to product default
+      if (allSizes.some((item) => item.filter_size === newSize)) {
+        newQty = Number(base.mto_quantity || 0);
+      } else if (allSizes.some((item) => item.plus_sizes === newSize)) {
+        newQty = Number(base.plus_size_quantity || 0);
+      }
     }
 
-    // Determine final size price logic
-    let finalPrice = 0;
+    setAvailableQty(newQty);
+    if (selectedQuantity > newQty) setSelectedQuantity(1);
 
+    // ----------------------------
+    // ✅ Price Logic
+    // ----------------------------
     const sellingPrice = parseFloat(
-      selectedInventory?.selling_price ||
-        productDetails?.data?.selling_price ||
-        0
+      selectedInventory?.selling_price || base.selling_price || 0
     );
 
     const plusCharge = parseFloat(selectedInventory?.plus_sizes_charges || 0);
 
-    // ✅ Logic:
-    // - If user selected a plus size and it has a charge > 0 → show only that charge
-    // - Else → show normal selling price
+    let finalPrice = 0;
+
     if (selectedInventory?.plus_sizes === newSize && plusCharge > 0) {
       finalPrice = plusCharge;
     } else {
@@ -336,6 +356,7 @@ export const ProductDetail = () => {
 
     setSelectedPrice(finalPrice);
   };
+
 
   const handleQuantitySelect = (qty) => {
 
@@ -525,7 +546,6 @@ export const ProductDetail = () => {
   };
 
   const [mssrmntSbmtConfrm, setMssrmntSbmtConfrm] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
 
@@ -582,6 +602,7 @@ export const ProductDetail = () => {
   useEffect(() => {
     if (!token || !productDetails?.data?.id) return;
     const fetchUserMeasurement = async () => {
+      setLoading(true);
       try {
 
         const measurresponse = await http.get(`/user/fetch-measurement-details/${productDetails?.data?.id}`, {
@@ -591,6 +612,8 @@ export const ProductDetail = () => {
 
       } catch (error) {
         console.error("Error fetching measurement details:", error);
+      } finally{
+        setLoading(false);
       }
     };
 
@@ -627,6 +650,10 @@ export const ProductDetail = () => {
       toast.error("Error checking pincode!");
     }
   };
+
+  if (loading) {
+      return <Loader />;
+  }
 
   return (
     <>
@@ -955,7 +982,7 @@ export const ProductDetail = () => {
 
                                   {(() => {
                                     const sizeOrder = [
-                                      "XS", "S", "M", "L", "XL",
+                                      "XXS", "XS", "S", "M", "L", "XL",
                                       "2XL", "3XL", "4XL", "5XL",
                                       "6XL", "7XL", "8XL", "9XL", "10XL"
                                     ];
@@ -969,8 +996,10 @@ export const ProductDetail = () => {
                                       return arr;
                                     }) || [];
 
+                                    const uniqueSizes = [...new Set(flatSizes)];
+
                                     // Sort sizes using prefix before "-"
-                                    const sorted = flatSizes.sort((a, b) => {
+                                    const sorted = uniqueSizes.sort((a, b) => {
                                       const prefixA = a.split("-")[0];
                                       const prefixB = b.split("-")[0];
                                       return sizeOrder.indexOf(prefixA) - sizeOrder.indexOf(prefixB);
@@ -1218,8 +1247,8 @@ export const ProductDetail = () => {
                       </div>
 
                       <div className="dfgndfjhgdf">
-                        <button className="btn btn-main btn-transparent px-3 me-1" onClick={handleAddToCart}>
-                          <i class="bi bi-bag me-1"></i> Add To Cart
+                        <button className="btn btn-main btn-transparent px-3 me-1" onClick={handleAddToCart} disabled={cartLoading}>
+                          <i class="bi bi-bag me-1"></i> {cartLoading ? "Adding..." : "Add to Cart"}
                         </button>
 
                         <button className="btn btn-main px-3" onClick={handleBuyNow}>

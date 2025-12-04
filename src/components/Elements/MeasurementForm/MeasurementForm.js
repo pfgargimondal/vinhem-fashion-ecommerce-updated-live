@@ -661,7 +661,11 @@ export const MeasurementForm = ({
                         });
                       }
 
-                      return sizes.map((sizeObj, subIndex) => (
+                      const uniqueSizes = sizes.filter(
+                        (size, idx, arr) => idx === arr.findIndex((s) => s.value === size.value)
+                      );
+
+                      return uniqueSizes.map((sizeObj, subIndex) => (
                         <div
                           className="doeiwjrkweirwe me-2 mb-2"
                           key={`${index}-${subIndex}`}

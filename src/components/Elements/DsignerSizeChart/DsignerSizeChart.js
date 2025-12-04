@@ -141,9 +141,9 @@ export const DesignerSizeChart = ({ productDetails }) => {
                           <th>UK</th>
                           <th>US</th>
                           <th>Chest ({isCms ? "cm" : "in"})</th>
+                          <th>Shoulder ({isCms ? "cm" : "in"})</th>
                           <th>Waist ({isCms ? "cm" : "in"})</th>
-                          <th>Neck ({isCms ? "cm" : "in"})</th>
-                          <th>Hip ({isCms ? "cm" : "in"})</th>
+                          <th>Length ({isCms ? "cm" : "in"})</th>
 
                           {/* Dynamic headers for extra fields */}
                           {firstSizeChart?.extra1 && (

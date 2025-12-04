@@ -1,3 +1,27 @@
+@media only screen and (min-width: 3001px){
+    header .header-top .doeiwhrkwdeor {
+        width: 20rem;
+        margin-right: 8rem;
+    }
+
+    header .header-top .doewhruiwerwer_right ul li {
+        margin-inline: 0.7rem;
+        font-size: 1.5rem;
+    }
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 402px;
+    }
+
+    .safsrfwee img{
+        height: 204px;
+    }
+}
+
+
+
+
+
 @media only screen and (max-width: 3000px){
     header .header-top .doeiwhrkwdeor {
         width: 20rem;
@@ -5,7 +29,16 @@
     }
 
     header .header-top .doewhruiwerwer_right ul li {
-        margin-inline: 1.1rem;
+        margin-inline: 0.7rem;
+        font-size: 1.5rem;
+    }
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 402px;
+    }
+
+    .safsrfwee img{
+        height: 204px;
     }
 }
 
@@ -20,7 +53,20 @@
     }
 
     header .header-top .doewhruiwerwer_right ul li {
-        margin-inline: 0.9rem;
+        margin-inline: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .mjeimojwjikrrr {
+        width: 5rem;
+    }
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 402px;
+    }
+
+    .safsrfwee img{
+        height: 204px;
     }
 }
 
@@ -45,8 +91,12 @@
         width: 14rem;
     }
 
-    header .header-top .doewhruiwerwer_right ul li {
-        margin-inline: 0.7rem;
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 352px;
+    }
+
+    .safsrfwee img{
+        height: 178px;
     }
 }
 
@@ -54,9 +104,29 @@
 
 
 
+@media only screen and (max-width: 1869px){
+    header .header-top .doewhruiwerwer_right ul li {
+        margin-inline: 0.3rem;
+        font-size: 1.3em;
+    }
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 330px;
+    }
+
+    .safsrfwee img{
+        height: 168px;
+    }
+}
+
+
+
+
+
+
 @media only screen and (max-width: 1800px){
     header .header-top .doewhruiwerwer_right ul li {
-        margin-inline: 0.56rem;
+        font-size: 1.2em;
     }
 }
 
@@ -67,7 +137,20 @@
 
 @media only screen and (max-width: 1600px){
     header .header-top .doewhruiwerwer_right ul li {
-        margin-inline: 0.3rem;
+        margin-inline: 0.2rem;
+        font-size: 1rem;
+    }
+
+    .mjeimojwjikrrr {
+        width: 4rem;
+    }
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 290px;
+    }
+
+    .safsrfwee img{
+        height: 150px;
     }
 }
 
@@ -84,6 +167,19 @@
 
     header .header-top .doewhruiwerwer_right ul li {
         margin-inline: 0.15rem;
+        font-size: 1rem;
+    }
+
+    .mjeimojwjikrrr {
+        width: 3.9rem;
+    }   
+
+    .pkopkerrwer.sfsdfweweweqwq img {
+        height: 257px;
+    }
+
+    .safsrfwee img{
+        height: 114px;
     }
 }
 

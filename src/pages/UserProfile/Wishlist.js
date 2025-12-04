@@ -68,7 +68,7 @@ export const Wishlist = () => {
                                 <div className={styles.fbgdfhgdfgdg}>
                                     <div className="row">
                                         {wishlistItems?.data?.map((wishlistProduct) => (
-                                        <div className="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+                                        <div className="col-lg-4 col-md-4 col-sm-6 col-6 mb-4">
                                             <div className={styles.dfgjhbdfg}>
                                                 <div className={styles.images}>
                                                     {(wishlistProduct?.new_arrival === '1' || wishlistProduct?.new_arrival === true) && (

@@ -154,31 +154,38 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
           <div className="dohwekrjiwejr">
             <div className="wrapper">
-              <div className="price-input">
+              <div className="price-input justify-content-between">
                 <div className="field">
-                  <span>Min</span>
+                  
+                  <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
 
-                  <input
-                    type="number"
-                    value={minInput}
-                    onChange={handleMinInput}
-                    onBlur={handleMinBlur}
-                    onKeyDown={handleMinEnter}
-                  />
+                  <div className="dioeuhiewrwer">
+                    <span>Minimum</span>
+
+                    <input
+                      type="number"
+                      value={minInput}
+                      onChange={handleMinInput}
+                      onBlur={handleMinBlur}
+                      onKeyDown={handleMinEnter}
+                    />
+                  </div>
                 </div>
 
-                <div className="separator">-</div>
+                <div className="field">                  
+                  <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
 
-                <div className="field">
-                  <span>Max</span>
+                  <div className="dioeuhiewrwer">
+                    <span>Maximum</span>
 
-                  <input
-                    type="number"
-                    value={maxInput}
-                    onChange={handleMaxInput}
-                    onBlur={handleMaxBlur}
-                    onKeyDown={handleMaxEnter}
-                  />
+                    <input
+                      type="number"
+                      value={maxInput}
+                      onChange={handleMaxInput}
+                      onBlur={handleMaxBlur}
+                      onKeyDown={handleMaxEnter}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -219,7 +226,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
           <div className="deowjnkrwere bdfgsdfseewewrr">
             {filterCategories.map(filterCategory => (
-              <div key={filterCategory.id} className="doewjkrnhweiurwer mb-3">
+              <div key={filterCategory.id} className="doewjkrnhweiurwer mb-2">
                 {filterCategory.sub_categories.length > 0 && (
                   <div className="duiwehijnwerwer">
                     <div class="main-catgry-filter px-2">
@@ -313,7 +320,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                 )}
               </div>
             ))}
-          </div>
+          </div>          
         </div>
 
         {allFilterMappingdata?.map((FilterMappingdata, dvbfbxdfbg) => (
@@ -359,7 +366,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                 })
               ) : (
                 FilterMappingdata.filter_values.split(",").map((item, indexdsvd) => (
-                  <div key={`${dvbfbxdfbg}-${indexdsvd}`} class="radio-wrapper-5 px-2 mb-3">
+                  <div key={`${dvbfbxdfbg}-${indexdsvd}`} class="radio-wrapper-5 px-2 mb-2">
                     <div className="cdwehjirnweijrowejrowejr">
                       <div className="checkbox-wrapper-33">
                         <label htmlFor={`${dvbfbxdfbg}-${indexdsvd}`} className="checkbox">
@@ -384,6 +391,8 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                 ))
               )}
             </div>
+
+            <div className="dokeawhiruwerwer_more ms-4">+5 more</div>
           </div>
         ))}
       </div>

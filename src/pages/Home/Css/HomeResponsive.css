@@ -6,6 +6,15 @@
     .fdbdfgdfgdf h6 {
         font-size: 16px !important;
     }
+
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 544px;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 2rem !important;
+    }
 }
 
 
@@ -25,6 +34,15 @@
     .fdbdfgdfgdf h6 {
         font-size: 16px !important;
     }
+
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 544px;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 2rem !important;
+    }
 }
 
 
@@ -34,6 +52,10 @@
 @media only screen and (max-width: 2550px){
     .fdbdfgdfgdf h6 {
         font-size: 16px !important;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 2rem !important;
     }
 }
 
@@ -48,6 +70,10 @@
 
     .fdbdfgdfgdf h6 {
         font-size: 13px !important;
+    } 
+    
+    .cfgncfgb h4 {
+        font-size: 2rem !important;
     }
 }
 
@@ -65,8 +91,27 @@
         width: 200px;
         height: 200px;
     }
+
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 509px;
+    }
+
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 2rem;
+    }
 }
 
+
+
+
+
+@media only screen and (max-width: 1800px){
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 475px;
+    }
+}
 
 
 
@@ -81,6 +126,19 @@
         width: 177px;
         height: 177px;
     }
+
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 418px;
+    }
+
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 1rem;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 1.5rem !important;
+    }
 }
 
 
@@ -91,6 +149,11 @@
 @media only screen and (max-width: 1454px){
     .fgjdfgf3298{
         gap: 10px;
+    }
+
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: 375px;
     }
 }
 
@@ -106,6 +169,21 @@
 
     .fdbdfgdfgdf h6 {
         font-size: 11px !important;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 1rem !important;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 1280px){
+    .nhgf65dfgdf,
+    .dfgyhdfgdf {
+        height: auto;
     }
 }
 
@@ -377,7 +455,9 @@
     }
 
     .fb-payment-options.d-flex{
-        display: none !important;
+        justify-content: center !important;
+        margin-top: 0.5rem;
+        padding-bottom: 1rem;
     }
 
     .fgjdfgf3298 {
