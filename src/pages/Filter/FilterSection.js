@@ -8,10 +8,21 @@ import Tab from 'react-bootstrap/Tab';
 
 
 export default function FilterSection({ setResFltrMenu, allFilterMappingdata, filterCategories }) {
-  const { setMainCategory, setSubCategory, setFilterCategory, color, setColor, setMaterial, setDesigner, setPlusSize, setOccasion, setSize, setCelebrity, setShippingTime, resetFilter } = useFilter();
+  const { minPrice, maxPrice, setPrice, setMainCategory, setSubCategory, setFilterCategory, color, setColor, setMaterial, setDesigner, setPlusSize, setOccasion, setSize, setCelebrity, setShippingTime, resetFilter } = useFilter();
   const [selectedTheme, setSelectedTheme] = useState("");
   const [sbctgry, setSbctgry] = useState(null);
   const [insdSbctgry, setInsdSbctgry] = useState(null);
+  const [expandedFilters, setExpandedFilters] = useState({});
+
+
+  const toggleFilterExpand = (filterOption) => {
+    setExpandedFilters(prev => ({
+      ...prev,
+      [filterOption]: !prev[filterOption]
+    }));
+  };
+
+  console.log(allFilterMappingdata);
   
 
   const toTitleCase = (str = "") =>
@@ -73,73 +84,59 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
     setResFltrMenu(false);
   }
 
-  const [minPrice, setMinPrice] = useState(2500);
-  const [maxPrice, setMaxPrice] = useState(6000);
 
-  const [minInput, setMinInput] = useState("2500");
-  const [maxInput, setMaxInput] = useState("6000");
-  
   const priceGap = 500;
   const maxRange = 1000000;
 
-  const handleMinInput = (e) => {
-    setMinInput(e.target.value);
-  };
+const handleMinInput = (e) => {
+  const value = e.target.value; // keep as string so user can type
+  setPrice(Number(value), maxPrice); // temporarily update
+};
 
-  const handleMaxInput = (e) => {
-    setMaxInput(e.target.value);
-  };
+// Handle max input change (allow typing freely)
+const handleMaxInput = (e) => {
+  const value = e.target.value;
+  setPrice(minPrice, Number(value));
+};
 
-  const handleMinBlur = () => {
-    let value = Number(minInput);
+// Handle min slider range change
+const handleMinRange = (e) => {
+  const value = Number(e.target.value);
+  if (maxPrice - value >= priceGap) {
+    setPrice(value, maxPrice);
+  }
+};
 
-    if (!value || value < 0) value = 0;
-    if (value > maxPrice - priceGap) value = maxPrice - priceGap;
+// Handle max slider range change
+const handleMaxRange = (e) => {
+  const value = Number(e.target.value);
+  if (value - minPrice >= priceGap) {
+    setPrice(minPrice, value);
+  }
+};
 
-    setMinPrice(value);
-    setMinInput(String(value));
-  };
+// Enforce priceGap on blur or Enter
+const handleMinBlur = () => {
+  let value = minPrice;
+  if (value < 0) value = 0;
+  if (value > maxPrice - priceGap) value = maxPrice - priceGap;
+  setPrice(value, maxPrice);
+};
 
-  const handleMaxBlur = () => {
-    let value = Number(maxInput);
+const handleMaxBlur = () => {
+  let value = maxPrice;
+  if (value > maxRange) value = maxRange;
+  if (value < minPrice + priceGap) value = minPrice + priceGap;
+  setPrice(minPrice, value);
+};
 
-    if (!value) value = minPrice + priceGap;
-    if (value > maxRange) value = maxRange;
-    if (value < minPrice + priceGap) value = minPrice + priceGap;
+const handleMinEnter = (e) => {
+  if (e.key === "Enter") handleMinBlur();
+};
 
-    setMaxPrice(value);
-    setMaxInput(String(value));
-  };
-
-  const handleMinRange = (e) => {
-    const value = Number(e.target.value);
-
-    if (maxPrice - value >= priceGap) {
-      setMinPrice(value);
-      setMinInput(String(value));
-    }
-  };
-
-  const handleMaxRange = (e) => {
-    const value = Number(e.target.value);
-
-    if (value - minPrice >= priceGap) {
-      setMaxPrice(value);
-      setMaxInput(String(value));
-    }
-  };
-
-  const handleMinEnter = (e) => {
-    if (e.key === "Enter") {
-      e.target.blur();
-    }
-  };
-
-  const handleMaxEnter = (e) => {
-    if (e.key === "Enter") {
-      e.target.blur();
-    }
-  };
+const handleMaxEnter = (e) => {
+  if (e.key === "Enter") handleMaxBlur();
+};
 
 
   return (
@@ -155,16 +152,15 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
           <div className="dohwekrjiwejr">
             <div className="wrapper">
               <div className="price-input justify-content-between">
-                <div className="field">
-                  
-                  <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                <div className="field">                  
+                  <span><i className="fa-solid fa-indian-rupee-sign"></i></span>
 
                   <div className="dioeuhiewrwer">
                     <span>Minimum</span>
 
                     <input
                       type="number"
-                      value={minInput}
+                      value={minPrice}
                       onChange={handleMinInput}
                       onBlur={handleMinBlur}
                       onKeyDown={handleMinEnter}
@@ -173,14 +169,14 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                 </div>
 
                 <div className="field">                  
-                  <span><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                  <span><i className="fa-solid fa-indian-rupee-sign"></i></span>
 
                   <div className="dioeuhiewrwer">
                     <span>Maximum</span>
 
                     <input
                       type="number"
-                      value={maxInput}
+                      value={maxPrice}
                       onChange={handleMaxInput}
                       onBlur={handleMaxBlur}
                       onKeyDown={handleMaxEnter}
@@ -196,19 +192,15 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
               <div className="range-input">
                 <input
                   type="range"
-                  className="range-min"
-                  min="0"
+                  min={0}
                   max={maxRange}
-                  step="100"
                   value={minPrice}
                   onChange={handleMinRange}
                 />
                 <input
                   type="range"
-                  className="range-max"
-                  min="0"
+                  min={0}
                   max={maxRange}
-                  step="100"
                   value={maxPrice}
                   onChange={handleMaxRange}
                 />
@@ -229,7 +221,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
               <div key={filterCategory.id} className="doewjkrnhweiurwer mb-2">
                 {filterCategory.sub_categories.length > 0 && (
                   <div className="duiwehijnwerwer">
-                    <div class="main-catgry-filter px-2">
+                    <div className="main-catgry-filter px-2">
                       <div className="radio-wrapper-5">
                         <div className="oijdmeiojewrer d-flex justify-content-between w-100 align-items-center">
                           <div className="doiwejirwer d-flex align-items-center">
@@ -251,7 +243,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                           </div>
 
                           {filterCategory.sub_categories.length > 0 && (
-                            <i onClick={() => handleSbctgry(filterCategory.id)} class={`fa-solid ${(sbctgry === filterCategory.id) ? "fa-minus" : "fa-plus"}`}></i>
+                            <i onClick={() => handleSbctgry(filterCategory.id)} className={`fa-solid ${(sbctgry === filterCategory.id) ? "fa-minus" : "fa-plus"}`}></i>
                           )}                  
                         </div>
                       </div> 
@@ -260,7 +252,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                         <div className="sub-catgry-filter indiewjrwerewr">
                           {filterCategory.sub_categories.map(sub_category => (
                             <div className="doewjroijwerwer mb-3">
-                              <div key={sub_category.id} class="radio-wrapper-5 ps-3 justify-content-between align-items-center">
+                              <div key={sub_category.id} className="radio-wrapper-5 ps-3 justify-content-between align-items-center">
                                 <div className="doiwejirwer d-flex align-items-center">
                                   <div className="cdwehjirnweijrowejrowejr">
                                     <div className="checkbox-wrapper-33">
@@ -281,7 +273,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
                                 {sub_category.filter_categories.length > 0 && (
                                   <div className="oijdmeiojewrer">
-                                    <i onClick={() => handleInSbctgry(sub_category.id)} class={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}></i>
+                                    <i onClick={() => handleInSbctgry(sub_category.id)} className={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}></i>
                                   </div>
                                 )}                        
                               </div>
@@ -289,7 +281,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                               {insdSbctgry === sub_category.id && (
                                 <div className="inside-sub-catgry-filter ps-3">
                                   {sub_category.filter_categories.map(filter_category => (
-                                    <div key={filter_category.id} class="radio-wrapper-5 ps-3 mb-3 justify-content-between align-items-center">
+                                    <div key={filter_category.id} className="radio-wrapper-5 ps-3 mb-3 justify-content-between align-items-center">
                                       <div className="doiwejirwer d-flex align-items-center">
                                         <div className="cdwehjirnweijrowejrowejr">
                                           <div className="checkbox-wrapper-33">
@@ -323,78 +315,90 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
           </div>          
         </div>
 
-        {allFilterMappingdata?.map((FilterMappingdata, dvbfbxdfbg) => (
-          <div key={FilterMappingdata.id} className="dkewjriwehrnjhweijrwer mb-4">
-            <div className="disenihrenjr mb-3 pb-3 d-flex align-items-center justify-content-between">
-              <h5 className="mb-0">{toTitleCase(FilterMappingdata.filter_option)}</h5>
-              <i className="bi bi-chevron-down"></i>
-            </div>
+        {allFilterMappingdata?.map((FilterMappingdata) => {
+          const totalValues = FilterMappingdata.filter_values.split(",").length;
+          const isExpanded = expandedFilters[FilterMappingdata.filter_option] || false;
+          const valuesToShow = isExpanded ? totalValues : 6;
 
-            <div className="doewjkrnhweiurwer bdfgsdfseewewrr">
-              {FilterMappingdata.filter_option.toLowerCase() === "color" ? (
-                FilterMappingdata.colors?.map((colorObj, index) => {
-                  const colorValue = colorObj.color_name;
-                  const colorCode = colorObj.color_code;
+          return (
+            <div key={FilterMappingdata.id} className="dkewjriwehrnjhweijrwer mb-4">
+              <div className="disenihrenjr mb-3 pb-3 d-flex align-items-center justify-content-between">
+                <h5 className="mb-0">{toTitleCase(FilterMappingdata.filter_option)}</h5>
+                <i className="bi bi-chevron-down"></i>
+              </div>
 
-                  return (
-                    <div className="doewjkrnhweiurwer clor-fltr-optn">
-                      <div key={index} className="cdwehjirnweijrowejrowejr">
+              <div className="doewjkrnhweiurwer bdfgsdfseewewrr">
+                {FilterMappingdata.filter_option.toLowerCase() === "color" ? (
+                  FilterMappingdata.colors?.slice(0, valuesToShow).map((colorObj, index) => {
+                    const colorValue = colorObj.color_name;
+                    const colorCode = colorObj.color_code;
+
+                    return (
+                      <div className="doewjkrnhweiurwer clor-fltr-optn" key={index}>
+                        <div className="cdwehjirnweijrowejrowejr">
+                          <div className="checkbox-wrapper-33">
+                            <label htmlFor={colorValue} className={`checkbox ${(selectedTheme === colorCode) ? "clr-label" : ""} mb-2 px-2 py-1`}>
+                              <input
+                                onChange={() => { setSelectedTheme(colorCode); handleSelect("color", colorValue.toLowerCase()) }}
+                                data-color={colorValue}
+                                id={colorValue}
+                                checked={color?.includes(colorValue.toLowerCase()) || false}
+                                name={FilterMappingdata.filter_option}
+                                className="checkbox__trigger visuallyhidden"
+                                type="checkbox"
+                              />
+                              <span className="checkbox__symbol">
+                                <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4 14l8 7L24 7"></path>
+                                </svg>
+                              </span>
+                              <div className="dijwehirwer rounded-pill me-2" style={{ background: colorCode, border: "1px solid #b0bec5" }}></div>
+                              <p className="checkbox__textwrapper">{colorValue}</p>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  FilterMappingdata.filter_values.split(",").slice(0, valuesToShow).map((item, indexdsvd) => (
+                    <div key={`${FilterMappingdata.id}-${indexdsvd}`} className="radio-wrapper-5 px-2 mb-2">
+                      <div className="cdwehjirnweijrowejrowejr">
                         <div className="checkbox-wrapper-33">
-                          <label htmlFor={colorValue} className={`checkbox ${(selectedTheme === colorCode) ? "clr-label" : ""} mb-2 px-2 py-1`}>
-                            <input onChange={() => {setSelectedTheme(colorCode); handleSelect("color", colorValue.toLowerCase())}}
-                              data-color={colorValue}                                     
-                              id={colorValue}
-                              checked={color?.includes(colorValue.toLowerCase()) || false}
-                              name={FilterMappingdata.filter_option} 
-                              className="checkbox__trigger visuallyhidden" 
-                              type="checkbox" />
-                            
+                          <label htmlFor={`${FilterMappingdata.id}-${indexdsvd}`} className="checkbox">
+                            <input
+                              id={`${FilterMappingdata.id}-${indexdsvd}`}
+                              name={FilterMappingdata.filter_option}
+                              value={item.trim().toLowerCase()}
+                              onChange={() => handleSelect(FilterMappingdata.filter_option, item.trim().toLowerCase())}
+                              className="checkbox__trigger visuallyhidden"
+                              type="checkbox"
+                            />
                             <span className="checkbox__symbol">
                               <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 14l8 7L24 7"></path>
                               </svg>
                             </span>
-
-                            <div className="dijwehirwer rounded-pill me-2" style={{background: colorCode, border: "1px solid #b0bec5"}}></div>
-                            
-                            <p className="checkbox__textwrapper">{colorValue}</p>
+                            <p className="checkbox__textwrapper">{item.trim()}</p>
                           </label>
                         </div>
                       </div>
                     </div>
-                  );
-                })
-              ) : (
-                FilterMappingdata.filter_values.split(",").map((item, indexdsvd) => (
-                  <div key={`${dvbfbxdfbg}-${indexdsvd}`} class="radio-wrapper-5 px-2 mb-2">
-                    <div className="cdwehjirnweijrowejrowejr">
-                      <div className="checkbox-wrapper-33">
-                        <label htmlFor={`${dvbfbxdfbg}-${indexdsvd}`} className="checkbox">
-                          <input
-                            id={`${dvbfbxdfbg}-${indexdsvd}`}
-                            name={FilterMappingdata.filter_option}
-                            value={item.trim().toLowerCase()}
-                            onChange={() => handleSelect(FilterMappingdata.filter_option, item.trim().toLowerCase())}                            
-                            className="checkbox__trigger visuallyhidden" type="checkbox" />
-                          
-                          <span className="checkbox__symbol">
-                            <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M4 14l8 7L24 7"></path>
-                            </svg>
-                          </span>
-                          
-                          <p className="checkbox__textwrapper">{item.trim()}</p>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                ))
+                  ))
+                )}
+              </div>
+
+              {totalValues > 6 && (
+                <div
+                  className="dokeawhiruwerwer_more ms-4"
+                  onClick={() => toggleFilterExpand(FilterMappingdata.filter_option)}
+                >
+                  {isExpanded ? "Show Less" : `+${totalValues - 6} more`}
+                </div>
               )}
             </div>
-
-            <div className="dokeawhiruwerwer_more ms-4">+5 more</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/*res filter options*/}
@@ -433,7 +437,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                         <div key={filterCategory.id} className="doewjkrnhweiurwer mb-2">
                           {filterCategory.sub_categories.length > 0 && (
                             <div className="duiwehijnwerwer">
-                              <div class="main-catgry-filter px-2">
+                              <div className="main-catgry-filter px-2">
                                 <div className="radio-wrapper-5">
                                   <div className="oijdmeiojewrer d-flex justify-content-between w-100 align-items-center">
                                     <div className="doiwejirwer d-flex align-items-center">
@@ -455,7 +459,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                     </div>
 
                                     {filterCategory.sub_categories.length > 0 && (
-                                      <i onClick={() => handleSbctgry(filterCategory.id)} class={`fa-solid ${(sbctgry === filterCategory.id) ? "fa-minus" : "fa-plus"}`}></i>
+                                      <i onClick={() => handleSbctgry(filterCategory.id)} className={`fa-solid ${(sbctgry === filterCategory.id) ? "fa-minus" : "fa-plus"}`}></i>
                                     )}                  
                                   </div>
                                 </div> 
@@ -464,7 +468,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                   <div className="sub-catgry-filter indiewjrwerewr">
                                     {filterCategory.sub_categories.map(sub_category => (
                                       <div className="doewjroijwerwer mb-3">
-                                        <div key={sub_category.id} class="radio-wrapper-5 ps-3 justify-content-between align-items-center">
+                                        <div key={sub_category.id} className="radio-wrapper-5 ps-3 justify-content-between align-items-center">
                                           <div className="doiwejirwer d-flex align-items-center">
                                             <div className="cdwehjirnweijrowejrowejr">
                                               <div className="checkbox-wrapper-33">
@@ -485,7 +489,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
                                           {sub_category.filter_categories.length > 0 && (
                                             <div className="oijdmeiojewrer">
-                                              <i onClick={() => handleInSbctgry(sub_category.id)} class={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}></i>
+                                              <i onClick={() => handleInSbctgry(sub_category.id)} className={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}></i>
                                             </div>
                                           )}                        
                                         </div>
@@ -493,7 +497,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                         {insdSbctgry === sub_category.id && (
                                           <div className="inside-sub-catgry-filter ps-3">
                                             {sub_category.filter_categories.map(filter_category => (
-                                              <div key={filter_category.id} class="radio-wrapper-5 ps-3 mb-3 justify-content-between align-items-center">
+                                              <div key={filter_category.id} className="radio-wrapper-5 ps-3 mb-3 justify-content-between align-items-center">
                                                 <div className="doiwejirwer d-flex align-items-center">
                                                   <div className="cdwehjirnweijrowejrowejr">
                                                     <div className="checkbox-wrapper-33">
@@ -564,7 +568,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                           })
                         ) : (
                           FilterMappingdata.filter_values.split(",").map((item, indexdsvd) => (
-                            <div key={`${dvbfbxdfbg}-${indexdsvd}`} class="radio-wrapper-5 px-2 mb-3">
+                            <div key={`${dvbfbxdfbg}-${indexdsvd}`} className="radio-wrapper-5 px-2 mb-3">
                               <div className="cdwehjirnweijrowejrowejr">
                                 <div className="checkbox-wrapper-33">
                                   <label htmlFor={`${dvbfbxdfbg}-${indexdsvd}`} className="checkbox">

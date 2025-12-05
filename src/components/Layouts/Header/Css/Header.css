@@ -302,7 +302,7 @@ header .header-main .swiper-slide:hover .header-mega-menu{
 }
 
 .h-m-m-inner .ojkmiweee_left > .row .col-lg-4{
-  border-right: 1px solid var(--pink-main-color);
+  border-right: 1px solid var(--text-gray-color);
 }
 
 .h-m-m-inner .ojkmiweee_left > .row .col-lg-4:last-child{

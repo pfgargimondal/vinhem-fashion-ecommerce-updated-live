@@ -1743,54 +1743,58 @@ export const ProductDetail = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>                
+              </div>
+            </div>
+          </div>
 
-                <div className="col-lg-12">
-                  <div className="diweurbhwer_inner mt-4">
-                    <div className="dfbgghdfdfgdf">
-                      <div className="sdf58sdfs">
-                        <h4 className="pb-2">Similar Items</h4>
-                      </div>
+          <div className="iuehwirwerweoih_djoej">
+            <div className="container-fluid">
+              <div className="col-lg-12">
+                <div className="diweurbhwer_inner mt-4">
+                  <div className="dfbgghdfdfgdf">
+                    <div className="sdf58sdfs">
+                      <h4 className="pb-2">Similar Items</h4>
+                    </div>
 
-                      <div className="fgjhdfgdfgdf py-4">
-                        <Swiper {...swiperConfig}>
-                          {productDetails?.data?.similar_product.map((featuredProduct) => (
-                            <SwiperSlide key={featuredProduct.id}>
-                              <FeaturedProducts featuredProduct={featuredProduct} />
-                            </SwiperSlide>
-                          ))}
-                        </Swiper>
-                      </div>
+                    <div className="fgjhdfgdfgdf py-4">
+                      <Swiper {...swiperConfig}>
+                        {productDetails?.data?.similar_product.map((featuredProduct) => (
+                          <SwiperSlide key={featuredProduct.id}>
+                            <FeaturedProducts featuredProduct={featuredProduct} />
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="diweurbhwer_inner mt-4">
-                    <div className="dfbgghdfdfgdf">
-                      <div className="sdf58sdfs">
-                        <h4 className="pb-2">Customer Also Viewed</h4>
-                      </div>
+              <div className="col-lg-12">
+                <div className="diweurbhwer_inner mt-4">
+                  <div className="dfbgghdfdfgdf">
+                    <div className="sdf58sdfs">
+                      <h4 className="pb-2">Customer Also Viewed</h4>
+                    </div>
 
-                      <div className="fgjhdfgdfgdf py-4">
-                        <Swiper {...swiperConfig}>
-                          {/* {featuredProducts.map((featuredProduct) => (
-                            <SwiperSlide key={featuredProduct.id}>
-                              <FeaturedProducts
-                                featuredProduct={featuredProduct}
-                              />
-                            </SwiperSlide>
-                          ))} */}
-                        </Swiper>
-                      </div>
+                    <div className="fgjhdfgdfgdf py-4">
+                      <Swiper {...swiperConfig}>
+                        {/* {featuredProducts.map((featuredProduct) => (
+                          <SwiperSlide key={featuredProduct.id}>
+                            <FeaturedProducts
+                              featuredProduct={featuredProduct}
+                            />
+                          </SwiperSlide>
+                        ))} */}
+                      </Swiper>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="diweurbhwer_inner mt-4">
-                    <RecentlyViewed />
-                  </div>
+              <div className="col-lg-12">
+                <div className="diweurbhwer_inner mt-4">
+                  <RecentlyViewed />
                 </div>
               </div>
             </div>

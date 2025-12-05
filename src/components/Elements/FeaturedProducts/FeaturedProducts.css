@@ -253,6 +253,10 @@
   /* background: rgba(232, 232, 232, 0.7); */
   background-color: #fff3cd;
   text-transform: capitalize;
+  margin-right: 2px;
+}
+.fdbdfgdfgdf h6:last-child{
+  margin-right: 0;
 }
 .fdbdfgdfgdf h6 i{
   color: var(--pink-main-color);
@@ -370,6 +374,27 @@
     height: 29vw !important;
   }
 }
+
+
+
+
+
+@media only screen and (max-width: 991px){
+  .doiewjkrniuwewer {
+    height: 46vw !important;
+  }
+}
+
+
+
+
+
+@media only screen and (max-width: 767px){
+    .doiewjkrniuwewer {
+        height: 71vw !important;
+    }
+}
+
 
 
 

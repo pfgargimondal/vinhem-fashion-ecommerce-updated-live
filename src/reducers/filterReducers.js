@@ -6,6 +6,9 @@ export const filterReducer = (state, action) => {
         case "PRODUCT_LIST":
             return {...state, productList: payload.products}
 
+        case "PRICE":
+            return {...state, minPrice: payload.minPrice, maxPrice: payload.maxPrice};
+
         case "MAIN_CATEGORY": {
             const clicked = payload.mainCategory;
             const alreadySelected = state.mainCategory.includes(clicked);

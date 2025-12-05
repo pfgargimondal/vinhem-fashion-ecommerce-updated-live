@@ -4,6 +4,8 @@ import { filterReducer } from "../reducers/filterReducers";
 
 const filterInitialState = {
     productList: [],
+    minPrice: 0,
+    maxPrice: 100000,
     mainCategory: [],
     subCategory: [],
     filterCategory: [],
@@ -40,6 +42,22 @@ export const FilterProvider = ({children}) => {
         })
     }
 
+
+    //price
+
+    function setPrice(min, max) {
+        dispatch({
+            type: "PRICE",
+            payload: { minPrice: min, maxPrice: max }
+        });
+    }
+
+    function filterPrice(products) {
+        return products.filter(product => {
+            const price = Number(product?.selling_price || 0);
+            return price >= state.minPrice && price <= state.maxPrice;
+        });
+    }
     
 
     //main category
@@ -421,7 +439,39 @@ export const FilterProvider = ({children}) => {
     }
 
 
-    const filteredProducts = filterReadyToShip(filterNewArrival(filterOnSale(filterCstmFit(filterSortBy(filterShippingTime(filterCelebrity(filterSize(filterOccasion(filterPlusSize(filterDesigner(filterMaterial(filterColor(filterFilterCategory(filterSubCategory(filterMainCategory(state.productList))))))))))))))));
+    const filteredProducts = filterReadyToShip(
+        filterNewArrival(
+            filterOnSale(
+                filterCstmFit(
+                    filterSortBy(
+                        filterShippingTime(
+                            filterCelebrity(
+                                filterSize(
+                                    filterOccasion(
+                                        filterPlusSize(
+                                            filterDesigner(
+                                                filterMaterial(
+                                                    filterColor(
+                                                        filterFilterCategory(
+                                                            filterSubCategory(
+                                                                filterMainCategory(
+                                                                    filterPrice(state.productList)
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    );
 
 
 
@@ -432,6 +482,9 @@ export const FilterProvider = ({children}) => {
         readyToShip: state.readyToShip,
         cstmFit: state.cstmFit,
         initialProductList,
+        minPrice: state.minPrice,
+        maxPrice: state.maxPrice,
+        setPrice,
         mainCategory: state.mainCategory,
         setMainCategory,
         subCategory: state.subCategory,

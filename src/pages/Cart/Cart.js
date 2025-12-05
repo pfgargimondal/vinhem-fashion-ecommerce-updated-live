@@ -42,7 +42,6 @@ export const Cart = () => {
   const [billingAddressModal, setBillingAddressModal] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("");
-    // eslint-disable-next-line
   const { setCartCount } = useCart();
   const { resetCart } = useCart();
   const { formatPrice } = useCurrency();
@@ -172,7 +171,11 @@ export const Cart = () => {
       );
 
       // Remove locally from state
-      setcartItems((prev) => prev.filter((item) => item.id !== cartItemId));
+      setcartItems((prev) => {
+        const updated = prev.filter((item) => item.id !== cartItemId);
+        setCartCount(updated.length);   // update count correctly
+        return updated;
+      });
       fetchCartlist();
     } catch (error) {
       console.error("Failed to remove item", error);
@@ -855,7 +858,7 @@ export const Cart = () => {
                                     </h4>
 
                                     <h5 className="mb-0">
-                                      {cartItemsVal.plus_sizes_charges === '0' ? (
+                                      {cartItemsVal.belongsTo === 'filter_size' ? (
                                         <>
                                           <span className="old-price">
                                             {/* <i class="bi bi-currency-rupee"></i> */}
