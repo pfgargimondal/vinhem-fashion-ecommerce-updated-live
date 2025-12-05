@@ -294,14 +294,14 @@ export const Home = () => {
           </div>
           <div className="dfgnhdfgdf">
             <div className="row">
-              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-4">
                 <div className="nhgf65dfgdf">
                   <Link to={homepage?.data?.section3_url1}>
                     <img src={`${homepage?.image_url}/${homepage?.data?.section3_image1}`} alt="" />
                   </Link>
                 </div>
               </div>
-              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-4">
                 <div className="nhgf65dfgdf">
                   <Link to={homepage?.data?.section3_url2}>
                     <img src={`${homepage?.image_url}/${homepage?.data?.section3_image2}`} alt="" />
@@ -324,7 +324,7 @@ export const Home = () => {
         <div className="container-fluid">
           <div className="gbfhdvgdfg">
             <div className="row">
-              <div className="col-lg-3 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-3 mb-lg-0 mb-md-0 mb-4">
                 <div className="dfdfdffd">
                   <Link to={homepage?.data?.section3_url4}>
                     <img src={`${homepage?.image_url}/${homepage?.data?.section3_image4}`} alt="" />
@@ -363,7 +363,7 @@ export const Home = () => {
           </div>
           <div className="dfdfhgdf65">
             <div className="row">
-              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-4">
                 <Link to={homepage?.data?.section5_url1}>
                 <div
                   className="dfgyhdfgdf"                  
@@ -382,7 +382,7 @@ export const Home = () => {
                 </div>
                 </Link>
               </div>
-              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-4">
                 <Link to={homepage?.data?.section5_url2}>
                 <div
                   className="dfgyhdfgdf"                  
@@ -401,7 +401,7 @@ export const Home = () => {
                 </div>
                 </Link>
               </div>
-              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-0">
+              <div className="col-lg-4 mb-lg-0 mb-md-0 mb-4">
                 <Link to={homepage?.data?.section5_url3}>
                 <div
                   className="dfgyhdfgdf"                  

@@ -250,6 +250,7 @@
     
     header .header-top .doeiwhrkwdeor{
         width: auto;
+        margin-right: 0;
     }
 
     header .header-top .doeiwhrkwdeor .currency-toggle-btn img{
@@ -288,6 +289,10 @@
     .dwejoijrwer.d-none,
     .dowejojiweujrwer.d-none{
         display: block !important;
+    }
+
+    .h-m-m-inner .ojkmiweee_left > .row .col-lg-4{
+        border-right: 0;
     }
 
     .dowejojiweujrwer ul li{

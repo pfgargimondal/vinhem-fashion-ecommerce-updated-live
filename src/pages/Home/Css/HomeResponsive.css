@@ -320,10 +320,6 @@
         width: 80%;
     }
 
-    .fbgvdsdfd6568.pb-5 {
-        padding-bottom: 0 !important;
-    }
-
     .fbgvdsdfd6568::-webkit-scrollbar{
         display: none;
     }
@@ -402,22 +398,9 @@
     .dfndfjhdfgdf{
         margin-top: 1.5rem;
     }
-    
-    .dfndfjhdfgdf.pb-5,
-    .sdfnjhdfbgdfg.pb-5,
-    .fbnghksdfsdfsf.pb-5,
-    .fvbhgfbfgvf5865.pb-5,
-    .kdnfghdfsdf.pb-5 {
-        padding-bottom: 0 !important;
-    }
 
     .ghbgfgdf .col-lg-3:nth-of-type(4n - 2) .dfnghfd{
         border-right: 0 !important;
-    }
-
-    .ghbgfgdf .col-lg-3:nth-of-type(4n - 1) .dfnghfd .sdhgdfg img,
-    .ghbgfgdf .col-lg-3:nth-of-type(4n) .dfnghfd5 .sdhgdfg img{
-        width: 2rem !important;
     }
 
     .sdhgdfg{
@@ -430,11 +413,6 @@
 
     .xfdjgdfgdfg {
         height: 35vw;
-    }
-
-    .sdf58sdfs h4 {
-        font-size: 7vw;
-        font-weight: 500;
     }
 
     .lknaknjdoijweewpr.py-4{
@@ -462,6 +440,41 @@
 
     .fgjdfgf3298 {
         gap: 40px;
+    }
+
+    .dfwedrtweqweqee .col-lg-3{
+        margin-bottom: 1rem;
+    }
+    
+    .dfwedrtweqweqee .col-lg-3:nth-of-type(2n){
+        border-right: 0;
+    }
+
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 3rem;
+    }
+
+    .dfghdfg548 img {
+        border-radius: 0;
+        height: auto;
+        object-fit: initial;
+    }
+
+    .dfwedrtweqweqee .col-lg-3:nth-of-type(4n - 1),
+    .dfwedrtweqweqee .col-lg-3:nth-of-type(4n){
+        margin-bottom: 0;
+    }
+
+    .dkhweinjkwehijkr.justify-content-between{
+        justify-content: center !important;
+    }
+
+    .sdvfsdsefredraede .col-lg-4:nth-of-type(2n){
+        border-right: 0;
+    }
+
+    .sdvfsdsefredraede .col-lg-4:last-child{
+        margin-top: 2rem;
     }
 }
 
@@ -518,6 +531,23 @@
 
 
 
+
+
+@media only screen and (max-width: 495px){
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 2rem;
+    }
+
+    .fsesadadwwe .dfnghfd {
+        padding-inline: 3rem;
+    }
+}
+
+
+
+
+
+
 @media only screen and (max-width: 474px){
     footer .footer-bottom ul li span {
         font-size: 0.5rem;
@@ -527,6 +557,20 @@
         font-size: 0.8rem;
     }
 }
+
+
+
+
+
+
+@media only screen and (max-width: 439px){
+    .fsesadadwwe .dfnghfd,
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 1rem;
+    }
+}
+
+
 
 
 
@@ -553,6 +597,25 @@
 
     footer .footer-bottom ul li span {
         font-size: 0.55rem;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 383px){
+    .fsesadadwwe .dfnghfd,
+    .fsesadadwwe .dfnghfd5 {
+        padding-inline: 1rem;
+    }
+
+    .sdhgdfg img {
+        width: 7vw !important;
+    }
+
+    .cfgncfgb h4 {
+        font-size: 3.5vw !important;
     }
 }
 

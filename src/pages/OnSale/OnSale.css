@@ -228,10 +228,6 @@
 
 
 @media only screen and (max-width: 991px) {
-  .dfnghfd{
-    margin-bottom: 1rem;
-  }
-
   .col-lg-3.col-6.ps-0{
     padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
   }
