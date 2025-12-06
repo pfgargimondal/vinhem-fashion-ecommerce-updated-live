@@ -129,7 +129,6 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   }, [setSelectedCurrency]);
 
   const filteredCurrency = currency.filter((cur) => {
-    console.log(cur);
     if (!searchCurrency.trim()) return true; // show all by default
 
     return (

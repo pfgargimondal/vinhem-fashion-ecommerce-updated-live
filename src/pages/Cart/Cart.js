@@ -30,6 +30,7 @@ export const Cart = () => {
   const [totalPrice, settotalPrice] = useState([]);
     // eslint-disable-next-line
   const [productCoupon, setproductCoupon] = useState([]);
+  const [shippingCountry, setShippingCountry] = useState([]);
   const [couponItems, setcouponItems] = useState([]);
   const [selectedCoupon, setSelectedCoupon] = useState("");
   // eslint-disable-next-line
@@ -45,6 +46,7 @@ export const Cart = () => {
   const { setCartCount } = useCart();
   const { resetCart } = useCart();
   const { formatPrice } = useCurrency();
+  const [hideDBAddress, setHideDBAddress] = useState(false);
 
   // console.log(localStorage.getItem("selectedCurrency"), 'selectedCurrency');
 
@@ -62,6 +64,7 @@ export const Cart = () => {
       setcartItems(res.data.data || []);
       settotalPrice(res.data.total_cart_price || "");
       setproductCoupon(res.data.all_productCoupon || []);
+      setShippingCountry(res.data.shipping_country || []);
     } catch (error) {
       console.error("Failed to fetch cart list", error);
     } finally {
@@ -435,6 +438,7 @@ export const Cart = () => {
   const handleRemoveAddress = () => {
     localStorage.removeItem("shipping_address");
     setShippingAddress(null);
+    setHideDBAddress(true);    
   };
 
   const handleEditAddress = () => {
@@ -1216,10 +1220,20 @@ export const Cart = () => {
 
                                 <p className="mb-0">A valid Indian mobile is required for seamless delivery. Before delivery of this order, you will get a one-time passowrd on +91-7003672926 <span className="ms-1">Edit</span></p>
                               </div>
-                              {shippingAddress ? (
-                                <ShippingAddress address={shippingAddress} onEdit={handleEditAddress} onRemove={handleRemoveAddress}/>
-                              ) : previousAddress ? (
-                                <ShippingAddress address={previousAddress} onEdit={handleEditAddress} onRemove={handleRemoveAddress}/>
+                              {!hideDBAddress ? (
+                                shippingAddress ? (
+                                  <ShippingAddress
+                                    address={shippingAddress}
+                                    onEdit={handleEditAddress}
+                                    onRemove={handleRemoveAddress}
+                                  />
+                                ) : previousAddress ? (
+                                  <ShippingAddress
+                                    address={previousAddress}
+                                    onEdit={handleEditAddress}
+                                    onRemove={handleRemoveAddress}
+                                  />
+                                ) : null
                               ) : null}
                             </div>
                           </div>
@@ -2074,7 +2088,12 @@ export const Cart = () => {
                   value={shippingData.shipping_country}
                   onChange={handleInputChange}
                 >
-                  <option value="India">India</option>
+                  <option value="">Select Country</option>
+                  {shippingCountry.map((item) => (
+                    <option key={item.country_name} value={item.country_name}>
+                      {item.country_name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -2279,7 +2298,12 @@ export const Cart = () => {
                   value={billingData.billing_country}
                   onChange={handleInputChangeBilling}
                 >
-                  <option value="India">India</option>
+                  <option value="">Select Country</option>
+                  {shippingCountry.map((item) => (
+                    <option key={item.country_name} value={item.country_name}>
+                      {item.country_name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
