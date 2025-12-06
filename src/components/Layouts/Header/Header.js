@@ -16,6 +16,7 @@ import { useCurrency } from "../../../context/CurrencyContext";
 export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, shouldHideHeaderCategoryRoutes }) => {
   const [resMenu, setResMenu] = useState(false);
   const [userDropdown, setUserDropdown] = useState(false);
+  const [searchCurrency, setSearchCurrency] = useState("");
     // eslint-disable-next-line
   const [searchBarToggle, setSearchBarToggle] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -127,6 +128,16 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
     fetchCurrency();
   }, [setSelectedCurrency]);
 
+  const filteredCurrency = currency.filter((cur) => {
+    console.log(cur);
+    if (!searchCurrency.trim()) return true; // show all by default
+
+    return (
+      cur.currency_type.toLowerCase().includes(searchCurrency.toLowerCase()) ||
+      cur.currency_code.toLowerCase().includes(searchCurrency.toLowerCase())
+    );
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 30);
@@ -223,14 +234,29 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                               </button>
 
                             {showCurrencyDropdown && (
-                              <ul className="currency-menu position-absolute bg-white shadow rounded-3 mt-2 mb-0 py-2 px-0">
-                                {currency.map((cur) => (
+                              <div className="osjoidhwjiwer dwelorjwemr-res position-absolute bg-white shadow rounded-3 mt-2 p-2">
+                                <div className="dmndfkswndfiofrsmk position-relative">
+                                  <input type="text" placeholder="Search for a region" value={searchCurrency}
+                                    onChange={(e) => setSearchCurrency(e.target.value)} className="form-control py-1" />
+                                  <i
+                                    className={`bi position-absolute ${searchCurrency.length > 0 ? "bi-x" : "bi-search"}`}
+                                    style={{ right: "10px", top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
+                                    onClick={() => {
+                                      if (searchCurrency.length > 0) {
+                                        setSearchCurrency("");   // Clear search when clicking cross
+                                      }
+                                    }}
+                                  ></i>
+                                </div>
+
+                                <ul className="currency-menu mb-0 px-0">
+                                  {filteredCurrency.map((cur) => (
                                     <li
                                       key={cur.id}
                                       className="currency-item d-flex align-items-center p-2"
                                       onClick={() => {
                                         setSelectedCurrency(cur);
-                                        localStorage.setItem("selectedCurrency", JSON.stringify(cur)); // ✅ Save selection
+                                        localStorage.setItem("selectedCurrency", JSON.stringify(cur));
                                         setShowCurrencyDropdown(false);
                                       }}
                                     >
@@ -238,7 +264,6 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                         <img
                                           src={cur.flag_icon}
                                           alt={cur.currency_code}
-                                          className="me-2"
                                           width="24"
                                           height="18"
                                         />
@@ -248,7 +273,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                       </span>
                                     </li>
                                   ))}
-                              </ul>
+                                </ul>
+                              </div>
                             )}
                           </div>
                         </div>
@@ -298,32 +324,47 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                               </button>
 
                             {showCurrencyDropdown && (
-                              <ul className="currency-menu position-absolute bg-white shadow rounded-3 mt-2 mb-0 py-2 px-0">
-                                {currency.map((cur) => (
-                                  <li
-                                    key={cur.id}
-                                    className="currency-item d-flex align-items-center p-2"
+                              <div className="osjoidhwjiwer position-absolute bg-white shadow rounded-3 mt-2 p-2">
+                                <div className="dmndfkswndfiofrsmk position-relative">
+                                  <input type="text" placeholder="Search for a region" value={searchCurrency}
+                                    onChange={(e) => setSearchCurrency(e.target.value)} className="form-control py-1" />
+                                  <i
+                                    className={`bi position-absolute ${searchCurrency.length > 0 ? "bi-x" : "bi-search"}`}
+                                    style={{ right: "10px", top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
                                     onClick={() => {
-                                      setSelectedCurrency(cur);
-                                      localStorage.setItem("selectedCurrency", JSON.stringify(cur)); // ✅ Save selection
-                                      setShowCurrencyDropdown(false);
+                                      if (searchCurrency.length > 0) {
+                                        setSearchCurrency("");   // Clear search when clicking cross
+                                      }
                                     }}
-                                  >
-                                    <span className="me-2">
-                                      <img
-                                        src={cur.flag_icon}
-                                        alt={cur.currency_code}
-                                        className="me-2"
-                                        width="24"
-                                        height="18"
-                                      />
-                                    </span>
-                                    <span>
-                                      {cur.currency_type} ({cur.currency_code})
-                                    </span>
-                                  </li>
-                                ))}
-                              </ul>
+                                  ></i>
+                                </div>
+
+                                <ul className="currency-menu mb-0 px-0">
+                                  {filteredCurrency.map((cur) => (
+                                    <li
+                                      key={cur.id}
+                                      className="currency-item d-flex align-items-center p-2"
+                                      onClick={() => {
+                                        setSelectedCurrency(cur);
+                                        localStorage.setItem("selectedCurrency", JSON.stringify(cur));
+                                        setShowCurrencyDropdown(false);
+                                      }}
+                                    >
+                                      <span className="me-2">
+                                        <img
+                                          src={cur.flag_icon}
+                                          alt={cur.currency_code}
+                                          width="24"
+                                          height="18"
+                                        />
+                                      </span>
+                                      <span>
+                                        {cur.currency_type} ({cur.currency_code})
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                             )}
                           </div>
                         </div>

@@ -446,8 +446,13 @@
         border-bottom: 1px solid var(--light-background-color);
     }
 
-    .wlojdfiwejrower .currency-menu{
+    .dwelorjwemr-res{
         right: 0;
+        z-index: 9;
+    }
+
+    .dwelorjwemr-res img{
+        width: auto !important;
     }
 
     .dowejojiweujrwer li a span{

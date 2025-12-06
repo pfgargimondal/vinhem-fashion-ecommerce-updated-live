@@ -447,3 +447,26 @@ header .header-main .swiper-slide:hover .header-mega-menu{
 .hdr-cstm-wrppr{
   max-width: 95%;
 }
+
+.dmndfkswndfiofrsmk input{
+  border-color: var(--text-gray-color) !important;
+  border-radius: 5px !important;
+}
+
+.dmndfkswndfiofrsmk input::placeholder{
+  font-size: 0.9rem;
+}
+
+.dmndfkswndfiofrsmk i{
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  color: var(--text-gray-color);
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.dmndfkswndfiofrsmk i:hover{
+  color: var(--pink-main-color);
+  transition: 0.1s ease-in-out;
+}
