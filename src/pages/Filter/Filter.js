@@ -415,7 +415,7 @@ export const Filter = () => {
                                   />
                                 </Link>
 
-                                <div className="doikwenirnwekhrwer d-flex position-relative" style={{top: onSale && product?.discount ? "17%" : "3%"}}>
+                                <div className="doikwenirnwekhrwer d-flex position-absolute" style={{top: onSale && product?.discount ? "17%" : "3%"}}>
                                   {user ? (
                                     <>
                                       <button

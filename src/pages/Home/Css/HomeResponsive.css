@@ -4,7 +4,9 @@
     }
 
     .fdbdfgdfgdf h6 {
-        font-size: 16px !important;
+        font-size: 14px !important;
+        margin-right: 8px;
+        padding: 5px 8px;
     }
 
     .nhgf65dfgdf,
@@ -14,6 +16,11 @@
 
     .sefweqwrwrewrer.sdfseeerrrr h4 {
         font-size: 1.5rem !important;
+    }
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: 673px;
     }
 }
 
@@ -32,7 +39,9 @@
     }
 
     .fdbdfgdfgdf h6 {
-        font-size: 16px !important;
+        font-size: 14px !important;
+        margin-right: 8px;
+        padding: 5px 8px;
     }
 
     .nhgf65dfgdf,
@@ -42,6 +51,11 @@
 
     .sefweqwrwrewrer.sdfseeerrrr h4 {
         font-size: 1.5rem !important;
+    }
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: 673px;
     }
 }
 
@@ -55,9 +69,19 @@
     }
 
     .fdbdfgdfgdf h6 {
-        font-size: 16px !important;
+        font-size: 14px !important;
         margin-right: 8px;
+        padding: 5px 8px;
     }   
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: 673px;
+    }
+
+    .fdbdfgdfgdf h4 {
+        font-size: 1.2rem !important;
+    }
 }
 
 
@@ -68,14 +92,7 @@
     .fgjdfgf3298{
         gap: 61px;
     }
-}
 
-
-
-
-
-
-@media only screen and (max-width: 1920px){
     .fdbdfgdfgdf h6 {
         margin-right: 2px;
     }
@@ -103,7 +120,13 @@
 
     .fdbdfgdfgdf h6 {
         font-size: 14px !important;
+        padding: 5px 6px;
     }   
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: 655px;
+    }
 }
 
 
@@ -119,6 +142,11 @@
     .fdbdfgdfgdf h6 {
         font-size: 13px !important;
     }  
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: auto;
+    }
 }
 
 
@@ -128,6 +156,11 @@
 @media only screen and (max-width: 1686px){
     .sefweqwrwrewrer.sdfseeerrrr h4 {
         font-size: 1.2rem !important;
+    }
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: auto;
     }
 }
 
@@ -157,6 +190,7 @@
     .fdbdfgdfgdf h6{
         font-size: 12px !important;
         margin-right: 8px;
+        padding: 5px 5px;
     }
 }
 
@@ -230,6 +264,15 @@
 
     .sdhgdfg img {
         width: 2rem;
+    }
+
+    .gdfgdf215,
+    .dfgjhdfgdf img {
+        height: 470px;
+    }
+
+    .fdbdfgdfgdf h4 {
+        font-size: 1rem !important;
     }
 }
 

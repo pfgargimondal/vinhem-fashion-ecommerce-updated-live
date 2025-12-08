@@ -54,7 +54,7 @@ export const FeaturedProducts = ({ featuredProduct }) => {
                     /> */}
                   </Link>
 
-                  <div className="doikwenirnwekhrwer d-flex position-relative">
+                  <div className="doikwenirnwekhrwer d-flex position-absolute">
                     {user ? (
                       <>
                         <button
