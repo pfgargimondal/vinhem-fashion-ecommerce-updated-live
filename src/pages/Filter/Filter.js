@@ -207,15 +207,20 @@ export const Filter = () => {
               <>
                 <li className="mx-2">/</li>
                 <li>
-                  <Link to={`/${category}`}>{category}</Link>
+                  <Link to={`/${category}`}>
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </Link>
                 </li>
               </>
             )}
+
             {subcategory && (
               <>
                 <li className="mx-2">/</li>
                 <li>
-                  <Link to={`/${category}/${subcategory}`}>{subcategory}</Link>
+                  <Link to={`/${category}/${subcategory}`}>
+                    {subcategory.charAt(0).toUpperCase() + subcategory.slice(1)}
+                  </Link>
                 </li>
               </>
             )}
@@ -335,7 +340,7 @@ export const Filter = () => {
                       <input type="checkbox" className="d-none" id="huidweujr" name="djikeiewr" checked={newIn} onChange={(e) => setNewArrival(e.target.checked)} />
 
                       <label htmlFor="huidweujr" className="btn btn-main me-1">
-                        <i className="bi me-1 bi-plus-circle-dotted"></i> New
+                        <i className="bi me-1 bi-plus-circle-dotted"></i> New In
                       </label>
                     </div>
 

@@ -550,4 +550,5 @@
 .dokeawhiruwerwer_more{
   cursor: pointer;
   color: var(--pink-main-color);
+  font-weight: 600;
 }
