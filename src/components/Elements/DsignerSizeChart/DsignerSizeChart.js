@@ -23,7 +23,65 @@ export const DesignerSizeChart = ({ productDetails }) => {
           {productDetails?.data?.product_category?.toLowerCase() === "accessories" ? (
             productDetails?.data?.product_sub_category?.toLowerCase() === "foot wear" ? (
               <>
-                <img src="/images/foot-measurment-2.png" alt="" />
+                <div className="djnweuihrwer">
+              <div className="opmkojwojoiwere d-flex justify-content-between">
+                <div className="dkewhknewhirwer">
+                  <h5>Footwear Measurement</h5>
+
+                  <h6 className="mb-0">
+                    Tip : If you don't find an exact match, go for the next size
+                  </h6>
+                </div>
+
+                <div className="oidahijeoijer d-flex align-items-center">
+                  <p className="mb-0">in</p>
+
+                  <div className="checkbox-wrapper-2 mx-1">
+                    <input
+                      type="checkbox"
+                      className="sc-gJwTLC ikxBAC"
+                      checked={isCms}
+                      onChange={handleToggle}
+                    />
+                  </div>
+
+                  <p className="mb-0">cms</p>
+                </div>
+              </div>
+              <div className="jnmkjhihewirwer mt-3">
+                <Table responsive="xl">
+                      <thead>
+                        <tr>
+                          <th>Size Name</th>
+                          <th>INDIA</th>
+                          <th>US</th>
+                          <th>UK</th>
+                          <th>EURO</th>
+                          <th>AUS</th>
+                          <th>Foot Length ({isCms ? "CM." : "IN."})</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        {sizeChart.map((item) => (
+                          <tr key={item.id}>
+                            <td>{item.size_name || "-"}</td>
+                            <td>{item.size_india || "-"}</td>
+                            <td>{item.us || "-"}</td>
+                            <td>{item.uk || "-"}</td>
+                            <td>{item.size_euro || "-"}</td>
+                            <td>{item.size_aus || "-"}</td>
+                            <td>
+                              {isCms
+                                ? item.front_length_cm || "-"
+                                : item.front_length_in || "-"}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                </Table>
+              </div>
+            </div>
               </>
             ) : (
               <>

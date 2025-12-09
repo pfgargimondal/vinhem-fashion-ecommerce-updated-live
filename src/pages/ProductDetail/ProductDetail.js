@@ -1827,8 +1827,14 @@ export const ProductDetail = () => {
 
       <div className={`${showSizeGuide ? "size-guide-modal" : "size-guide-modal size-guide-modal-hide"} position-fixed bg-white`}>
         <div className="size-guide-modal-header d-flex align-items-center justify-content-between px-4 py-3">
-          <h4 className="mb-1">Size Chart for {productDetails?.data?.product_category}</h4>
-
+          {productDetails?.data?.product_category?.toLowerCase() === "accessories" && (
+            <h4 className="mb-1">
+              Size Chart for{" "}
+              {productDetails?.data?.product_sub_category?.toLowerCase() === "foot wear"
+                ? productDetails?.data?.product_sub_category
+                : productDetails?.data?.product_category}
+            </h4>
+          )}
           <i class="fa-solid fa-xmark" onClick={() => setShowSizeGuide(false)}></i>
         </div>
 

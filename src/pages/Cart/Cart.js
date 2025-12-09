@@ -825,7 +825,7 @@ export const Cart = () => {
               <div className="row justify-content-between">
                 <div className="col-lg-8">
                   <div className="diwebjrwert_left">
-                    <h4 className="mb-4">Your Shopping Cart</h4>
+                    <h4 className="mb-4">YOUR SHOPPING CART</h4>
 
                     <div className="odnwejirhwerwer py-2 px-3">
                       <p className="mb-0 d-flex align-items-center">
@@ -1062,7 +1062,7 @@ export const Cart = () => {
                       <button onClick={handleCouponToggle} className="btn btn-main coupn-btn bg-transparent text-dark w-100 mt-5 mb-4">View All Offer & Coupons <i class="bi bi-chevron-right"></i></button>
                     </div>
 
-                    <h4 className="mb-4">Cart Summary</h4>
+                    <h4 className="mb-4">CART SUMMARY</h4>
 
                     <div className="dweoihrwerwer p-2 mb-3">
                       <Table responsive>
